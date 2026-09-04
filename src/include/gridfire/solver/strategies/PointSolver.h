@@ -263,9 +263,16 @@ namespace gridfire::solver {
             PointSolverContext* sctx;    // Pointer to the solver context
             engine::scratch::StateBlob& ctx;
             const engine::DynamicEngine* engine{};
+            double abs_tol{};
+            double rel_tol{};
             double T9{};
             double rho{};
-            double energy{};
+            double energy_generation_rate{};
+            double last_step_size{};
+            double previous_accepted_energy{};
+            double last_energy_change{};
+            std::vector<double> previous_accepted_abundances;
+            std::vector<double> last_mass_fraction_changes;
             const std::vector<fourdst::atomic::Species>* networkSpecies{};
             std::unique_ptr<exceptions::EngineError> captured_exception = nullptr;
             std::optional<std::map<fourdst::atomic::Species, std::unordered_map<std::string, double>>> reaction_contribution_map;
@@ -287,6 +294,11 @@ namespace gridfire::solver {
          * @return 0 on success; 1 on recoverable StaleEngineTrigger; -1 on other failures.
          */
         static int cvode_rhs_wrapper(sunrealtype t, N_Vector y, N_Vector ydot, void *user_data);
+
+        /**
+         * @brief Builds CVODE error weights from runtime species and energy scales.
+         */
+        static int cvode_error_weight_wrapper(N_Vector y, N_Vector ewt, void* user_data);
         /**
          * @brief CVODE dense Jacobian C-wrapper that fills SUNDenseMatrix using the engine.
          *
@@ -320,7 +332,7 @@ namespace gridfire::solver {
          *
          * State vector m_Y is sized to N (numSpecies + 1). Species slots are initialized from Composition
          * molar abundances when present, otherwise a tiny positive value; the last slot is set to
-         * accumulatedEnergy. Sets scalar tolerances, non-negativity constraints for species, maximum
+         * accumulatedEnergy. Sets runtime-derived error weights, non-negativity constraints for species, maximum
          * step size, creates a dense matrix and dense linear solver, and registers the Jacobian.
          */
         void initialize_cvode_integration_resources(

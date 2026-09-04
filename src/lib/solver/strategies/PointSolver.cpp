@@ -3,6 +3,7 @@
 #include "gridfire/types/types.h"
 #include "gridfire/utils/table_format.h"
 #include "gridfire/engine/diagnostics/dynamic_engine_diagnostics.h"
+#include "gridfire/engine/scratchpads/engine_graph_scratchpad.h"
 
 #include "quill/LogMacros.h"
 
@@ -10,6 +11,7 @@
 
 // ReSharper disable once CppUnusedIncludeDirective
 #include <cstdint>
+#include <cmath>
 #include <limits>
 #include <string>
 #include <unordered_map>
@@ -291,7 +293,6 @@ namespace gridfire::solver {
                 }
             }
             y_data[numSpecies] = 0.0; // Reset energy accumulator
-            utils::check_cvode_flag(CVodeSStolerances(sctx_p->cvode_mem, sctx_p->rel_tol.value(), sctx_p->abs_tol.value()), "CVodeSStolerances");
             utils::check_cvode_flag(CVodeReInit(sctx_p->cvode_mem, 0.0, sctx_p->Y), "CVodeReInit");
 
             equilibratedComposition = netIn.composition; // Use the provided composition as-is if we already have validated CVODE resources and that the composition is consistent with the previous state
@@ -303,7 +304,19 @@ namespace gridfire::solver {
             .sctx = sctx_p,
             .ctx = *sctx_p->engine_ctx,
             .engine = &m_engine,
+            .abs_tol = sctx_p->abs_tol.value(),
+            .rel_tol = sctx_p->rel_tol.value(),
         };
+        auto reset_error_weight_history = [&]() {
+            const auto* y_data = N_VGetArrayPointer(sctx_p->Y);
+            user_data.previous_accepted_abundances.assign(y_data, y_data + numSpecies);
+            user_data.last_mass_fraction_changes.assign(numSpecies, 0.0);
+            user_data.previous_accepted_energy = y_data[numSpecies];
+            user_data.last_energy_change = 0.0;
+            user_data.last_step_size = 0.0;
+            user_data.energy_generation_rate = 0.0;
+        };
+        reset_error_weight_history();
         LOG_TRACE_L1(m_logger, "CVODE resources successfully initialized!");
 
         double current_time = 0;
@@ -345,6 +358,10 @@ namespace gridfire::solver {
 
             utils::check_cvode_flag(flag, "CVode");
 
+            if (auto graph_state = sctx_p->engine_ctx->get<scratch::GraphEngineScratchPad>(); graph_state) {
+                graph_state.value()->stepDerivativesCache.clear();
+            }
+
             long int n_steps;
             double last_step_size;
             CVodeGetNumSteps(sctx_p->cvode_mem, &n_steps);
@@ -355,6 +372,19 @@ namespace gridfire::solver {
 
             sunrealtype* y_data = N_VGetArrayPointer(sctx_p->Y);
             const double current_energy = y_data[numSpecies]; // Specific energy rate
+
+            if (user_data.previous_accepted_abundances.size() == numSpecies) {
+                for (size_t i = 0; i < numSpecies; ++i) {
+                    const double mass_number = static_cast<double>(user_data.networkSpecies->at(i).a());
+                    user_data.last_mass_fraction_changes[i] = mass_number * std::abs(
+                        y_data[i] - user_data.previous_accepted_abundances[i]
+                    );
+                    user_data.previous_accepted_abundances[i] = y_data[i];
+                }
+            }
+            user_data.last_energy_change = std::abs(current_energy - user_data.previous_accepted_energy);
+            user_data.previous_accepted_energy = current_energy;
+            user_data.last_step_size = std::abs(last_step_size);
 
             // TODO: Accumulate neutrino loss through the state vector directly which will allow CVODE to properly integrate it
             accumulated_neutrino_energy_loss += user_data.neutrino_energy_loss_rate * last_step_size;
@@ -607,6 +637,8 @@ namespace gridfire::solver {
                 initialize_cvode_integration_resources(sctx_p, N, numSpecies, current_time, currentComposition, sctx_p->abs_tol.value(), sctx_p->rel_tol.value(), accumulated_energy);
 
                 utils::check_cvode_flag(CVodeReInit(sctx_p->cvode_mem, current_time, sctx_p->Y), "CVodeReInit");
+                user_data.networkSpecies = &m_engine.getNetworkSpecies(*sctx_p->engine_ctx);
+                reset_error_weight_history();
                 LOG_INFO(m_logger, "Done reinitializing CVODE after engine update. The next log messages will be from the first step after reinitialization...");
             }
 
@@ -706,6 +738,7 @@ namespace gridfire::solver {
             data->reaction_contribution_map = result.reaction_contribution_map;
             data->neutrino_energy_loss_rate = result.neutrino_energy_loss_rate;
             data->total_neutrino_flux = result.total_neutrino_flux;
+            data->energy_generation_rate = N_VGetArrayPointer(ydot)[data->networkSpecies->size()];
             LOG_TRACE_L2(instance->m_logger, "CVODE RHS wrapper completed successfully at time {}", t);
             return 0;
         } catch (const exceptions::EngineError& e) {
@@ -716,6 +749,81 @@ namespace gridfire::solver {
             // data->captured_exception = std::make_unique<exceptions::GridFireError>(e.what());
             return -1; // Some unrecoverable error
         }
+    }
+
+    int PointSolver::cvode_error_weight_wrapper(
+        const N_Vector y,
+        const N_Vector ewt,
+        void* user_data
+    ) {
+        const auto* data = static_cast<CVODEUserData*>(user_data);
+        if (data == nullptr || data->networkSpecies == nullptr) {
+            return -1;
+        }
+        if (!std::isfinite(data->abs_tol) || !std::isfinite(data->rel_tol) ||
+            data->abs_tol < 0.0 || data->rel_tol < 0.0) {
+            return -1;
+        }
+
+        const size_t num_species = data->networkSpecies->size();
+        const auto expected_length = static_cast<sunindextype>(num_species + 1);
+        if (N_VGetLength(y) != expected_length || N_VGetLength(ewt) != expected_length) {
+            return -1;
+        }
+
+        const auto* y_data = N_VGetArrayPointer(y);
+        auto* weight_data = N_VGetArrayPointer(ewt);
+
+        double total_mass_fraction = 0.0;
+        for (size_t i = 0; i < num_species; ++i) {
+            const double mass_number = static_cast<double>(data->networkSpecies->at(i).a());
+            total_mass_fraction += mass_number * std::abs(y_data[i]);
+        }
+        if (!std::isfinite(total_mass_fraction) || total_mass_fraction <= 0.0) {
+            return -1;
+        }
+
+        const double numerical_floor = std::numeric_limits<double>::epsilon() * total_mass_fraction;
+        const bool have_change_history = data->last_mass_fraction_changes.size() == num_species;
+        const auto importance = [&](const size_t i) {
+            const double mass_number = static_cast<double>(data->networkSpecies->at(i).a());
+            const double current_mass_fraction = mass_number * std::abs(y_data[i]);
+            const double recent_change = have_change_history ? data->last_mass_fraction_changes[i] : 0.0;
+            return std::max({current_mass_fraction, recent_change, numerical_floor});
+        };
+
+        double total_importance = 0.0;
+        for (size_t i = 0; i < num_species; ++i) {
+            total_importance += importance(i);
+        }
+        if (!std::isfinite(total_importance) || total_importance <= 0.0) {
+            return -1;
+        }
+
+        for (size_t i = 0; i < num_species; ++i) {
+            const double mass_number = static_cast<double>(data->networkSpecies->at(i).a());
+            const double component_importance = importance(i);
+            const double mass_fraction_tolerance =
+                data->rel_tol * component_importance +
+                data->abs_tol * component_importance / total_importance;
+            const double molar_abundance_tolerance = mass_fraction_tolerance / mass_number;
+            if (!std::isfinite(molar_abundance_tolerance) || molar_abundance_tolerance <= 0.0) {
+                return -1;
+            }
+            weight_data[i] = 1.0 / molar_abundance_tolerance;
+        }
+
+        const double energy_scale = std::max({
+            std::abs(y_data[num_species]),
+            data->last_energy_change,
+            std::abs(data->last_step_size * data->energy_generation_rate)
+        });
+        const double energy_tolerance = data->rel_tol * energy_scale + data->abs_tol;
+        if (!std::isfinite(energy_tolerance) || energy_tolerance <= 0.0) {
+            return -1;
+        }
+        weight_data[num_species] = 1.0 / energy_tolerance;
+        return 0;
     }
 
     int PointSolver::cvode_jac_wrapper(
@@ -942,7 +1050,7 @@ namespace gridfire::solver {
 
 
         utils::check_cvode_flag(CVodeInit(sctx_p->cvode_mem, cvode_rhs_wrapper, current_time, sctx_p->Y), "CVodeInit");
-        utils::check_cvode_flag(CVodeSStolerances(sctx_p->cvode_mem, relTol, absTol), "CVodeSStolerances");
+        utils::check_cvode_flag(CVodeWFtolerances(sctx_p->cvode_mem, cvode_error_weight_wrapper), "CVodeWFtolerances");
         utils::check_cvode_flag(CVodeSetInitStep(sctx_p->cvode_mem, 1.0e-8), "CVodeSetInitStep");
 
         // Constraints
