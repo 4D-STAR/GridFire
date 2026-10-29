@@ -108,6 +108,8 @@ var hierarchy =
     [ "gridfire_mod::gf_construct_solver_from_engine", "interfacegridfire__mod_1_1gf__construct__solver__from__engine.html", null ],
     [ "gridfire_mod::gf_evolve_c_array", "interfacegridfire__mod_1_1gf__evolve__c__array.html", null ],
     [ "gridfire_mod::gf_evolve_c_scalar", "interfacegridfire__mod_1_1gf__evolve__c__scalar.html", null ],
+    [ "gridfire_mod::gf_evolve_ext_c_array", "interfacegridfire__mod_1_1gf__evolve__ext__c__array.html", null ],
+    [ "gridfire_mod::gf_evolve_ext_c_scalar", "interfacegridfire__mod_1_1gf__evolve__ext__c__scalar.html", null ],
     [ "gridfire_mod::gf_free", "interfacegridfire__mod_1_1gf__free.html", null ],
     [ "gridfire_mod::gf_get_last_error_message", "interfacegridfire__mod_1_1gf__get__last__error__message.html", null ],
     [ "gridfire_mod::gf_init", "interfacegridfire__mod_1_1gf__init.html", null ],
@@ -118,6 +120,7 @@ var hierarchy =
       [ "GFGridContext", "struct_g_f_grid_context.html", null ],
       [ "GFPointContext", "struct_g_f_point_context.html", null ]
     ] ],
+    [ "GFInstantaneousOutputs", "struct_g_f_instantaneous_outputs.html", null ],
     [ "gridfire_mod::gridfire", "structgridfire__mod_1_1gridfire.html", null ],
     [ "gridfire::config::GridFireConfig", "structgridfire_1_1config_1_1_grid_fire_config.html", null ],
     [ "std::hash< gridfire::rates::weak::TableAxes >", "structstd_1_1hash_3_01gridfire_1_1rates_1_1weak_1_1_table_axes_01_4.html", null ],

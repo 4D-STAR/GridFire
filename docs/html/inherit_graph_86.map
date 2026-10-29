@@ -1,3 +1,21 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$structstd_1_1hash_3_01gridfire_1_1rates_1_1weak_1_1_table_axes_01_4.html" title=" " alt="" coords="5,5,184,46"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,296,105,321"/>
+<area shape="rect" id="Node000001" href="$structstd_1_1formatter_3_01gridfire_1_1_net_in_01_4.html" title=" " alt="" coords="205,5,356,46"/>
+<area shape="poly" id="edge110_Node000000_Node000001" title=" " alt="" coords="56,280,64,231,81,171,109,110,128,82,151,57,176,41,207,31,203,35,178,45,154,61,132,85,113,113,86,173,70,233,62,280"/>
+<area shape="rect" id="Node000002" href="$structstd_1_1formatter_3_01gridfire_1_1_net_out_01_4.html" title=" " alt="" coords="205,71,356,111"/>
+<area shape="poly" id="edge111_Node000000_Node000002" title=" " alt="" coords="61,280,72,244,91,201,117,159,151,122,176,107,207,98,203,102,179,112,154,126,121,162,95,204,77,246,66,281"/>
+<area shape="rect" id="Node000003" href="$structstd_1_1formatter_3_01gridfire_1_1engine_1_1scratch_1_1_abstract_scratch_pad_01_4.html" title=" " alt="" coords="153,136,408,177"/>
+<area shape="poly" id="edge112_Node000000_Node000003" title=" " alt="" coords="68,281,102,232,125,207,151,186,176,175,172,179,154,191,128,211,106,235,73,283"/>
+<area shape="rect" id="Node000004" href="$structstd_1_1formatter_3_01gridfire_1_1engine_1_1scratch_1_1_adaptive_engine_view_scratch_pad_01_4.html" title=" " alt="" coords="172,200,389,256"/>
+<area shape="poly" id="edge113_Node000000_Node000004" title=" " alt="" coords="99,287,152,266,188,255,184,259,154,271,103,291"/>
+<area shape="rect" id="Node000005" href="$structstd_1_1formatter_3_01gridfire_1_1engine_1_1scratch_1_1_defined_engine_view_scratch_pad_01_4.html" title=" " alt="" coords="175,280,386,336"/>
+<area shape="poly" id="edge114_Node000000_Node000005" title=" " alt="" coords="119,306,176,307,172,310,121,311"/>
+<area shape="rect" id="Node000006" href="$structstd_1_1formatter_3_01gridfire_1_1engine_1_1scratch_1_1_graph_engine_scratch_pad_01_4.html" title=" " alt="" coords="180,360,381,416"/>
+<area shape="poly" id="edge115_Node000000_Node000006" title=" " alt="" coords="100,325,154,346,188,359,183,361,152,351,102,330"/>
+<area shape="rect" id="Node000007" href="$structstd_1_1formatter_3_01gridfire_1_1engine_1_1scratch_1_1_multiscale_partitioning_engine_view_scratch_pad_01_4.html" title=" " alt="" coords="155,440,406,496"/>
+<area shape="poly" id="edge116_Node000000_Node000007" title=" " alt="" coords="71,332,107,381,129,405,154,426,175,439,170,441,151,431,125,409,103,384,71,337"/>
+<area shape="rect" id="Node000008" href="$structstd_1_1formatter_3_01gridfire_1_1engine_1_1scratch_1_1_scratch_pad_type_01_4.html" title=" " alt="" coords="163,520,398,561"/>
+<area shape="poly" id="edge117_Node000000_Node000008" title=" " alt="" coords="62,333,75,374,93,420,119,467,154,506,172,519,167,520,151,510,114,470,88,423,70,376,62,339"/>
+<area shape="rect" id="Node000009" href="$structstd_1_1formatter_3_01gridfire_1_1engine_1_1scratch_1_1_state_blob_01_4.html" title=" " alt="" coords="183,585,378,626"/>
+<area shape="poly" id="edge118_Node000000_Node000009" title=" " alt="" coords="59,334,68,387,84,450,112,515,131,545,154,570,185,591,179,591,151,574,127,548,107,518,79,452,63,388,58,339"/>
 </map>

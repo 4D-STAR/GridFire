@@ -711,6 +711,24 @@ namespace gridfire::solver {
 
         netOut.dEps_dT = dEps_dT;
         netOut.dEps_dRho = dEps_dRho;
+
+        // Evaluate the instantaneous rates at exactly the same state used for the derivatives above so that eps_nuc,
+        // dEps_dT, and dEps_dRho are mutually consistent. This also leaves the engine's most recent RHS calculation
+        // pointing at this final state.
+        LOG_TRACE_L2(m_logger, "generating final instantaneous nuclear energy generation rate...");
+        const auto final_rhs = m_engine.calculateRHSAndEnergy(*sctx_p->engine_ctx, outputComposition, T9, netIn.density, false);
+        if (!final_rhs) {
+            LOG_CRITICAL(m_logger, "Failed to calculate final instantaneous RHS: {}", EngineStatus_to_string(final_rhs.error()));
+            throw exceptions::BadRHSEngineError(std::format("Failed to calculate final instantaneous RHS: {}", EngineStatus_to_string(final_rhs.error())));
+        }
+        netOut.eps_nuc = final_rhs->nuclearEnergyGenerationRate;
+        netOut.neutrino_energy_loss_rate = final_rhs->neutrinoEnergyLossRate;
+        if (netOut.eps_nuc != 0.0 && std::isfinite(netOut.eps_nuc)) {
+            netOut.dlnEps_dlnT = netIn.temperature * dEps_dT / netOut.eps_nuc;
+            netOut.dlnEps_dlnRho = netIn.density * dEps_dRho / netOut.eps_nuc;
+        }
+        LOG_TRACE_L2(m_logger, "Found eps: {:0.3E}, dlnEps/dlnT: {:0.3E}, dlnEps/dlnRho: {:0.3E}", netOut.eps_nuc, netOut.dlnEps_dlnT, netOut.dlnEps_dlnRho);
+
         netOut.specific_neutrino_energy_loss = accumulated_neutrino_energy_loss;
         netOut.specific_neutrino_flux = accumulated_total_neutrino_flux;
         LOG_TRACE_L2(m_logger, "Output data built!");

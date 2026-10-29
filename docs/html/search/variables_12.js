@@ -16,7 +16,7 @@ var searchData=
   ['reactionphysicaltypenames_13',['ReactionPhysicalTypeNames',['../namespacegridfire_1_1reaction.html#a773ef58975dc959e4ae03e2e677ab54f',1,'gridfire::reaction']]],
   ['reactionptr_14',['reactionPtr',['../structgridfire_1_1engine_1_1_adaptive_engine_view_1_1_reaction_flow.html#a10984b31880df00b0d78d76f55c0b143',1,'gridfire::engine::AdaptiveEngineView::ReactionFlow']]],
   ['reactiontypenames_15',['ReactionTypeNames',['../namespacegridfire_1_1reaction.html#ac06a7c50ac58fb2f901d778fc30cd1cf',1,'gridfire::reaction']]],
-  ['rel_5ftol_16',['rel_tol',['../structgridfire_1_1solver_1_1_point_solver_context.html#afac00ebe1c8bdea292cebf8b377e8181',1,'gridfire::solver::PointSolverContext']]],
+  ['rel_5ftol_16',['rel_tol',['../structgridfire_1_1solver_1_1_point_solver_context.html#afac00ebe1c8bdea292cebf8b377e8181',1,'gridfire::solver::PointSolverContext::rel_tol'],['../structgridfire_1_1solver_1_1_point_solver_1_1_c_v_o_d_e_user_data.html#a19722e6617d804d995210652c6cdb20f',1,'gridfire::solver::PointSolver::CVODEUserData::rel_tol']]],
   ['relativecullingthreshold_17',['relativeCullingThreshold',['../structgridfire_1_1config_1_1_adaptive_engine_view_config.html#af2a3b7cc7a0475853dfcae401702f6fb',1,'gridfire::config::AdaptiveEngineViewConfig']]],
   ['relativethreshold_18',['relativeThreshold',['../structgridfire_1_1config_1_1_boundary_flux_config.html#a835ab5b530f90a686e273a2933b1007f',1,'gridfire::config::BoundaryFluxConfig']]],
   ['reltol_19',['relTol',['../structgridfire_1_1config_1_1_point_solver_config.html#ada6489cf79ba825a7870bd84ee99f150',1,'gridfire::config::PointSolverConfig']]],

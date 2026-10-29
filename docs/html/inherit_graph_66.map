@@ -1,13 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$classgridfire_1_1trigger_1_1_trigger.html" title=" " alt="" coords="5,165,214,221"/>
-<area shape="rect" id="Node000001" href="$classgridfire_1_1trigger_1_1solver_1_1_c_v_o_d_e_1_1_boundary_flux_trigger.html" title=" " alt="" coords="274,5,474,61"/>
-<area shape="poly" id="edge70_Node000000_Node000001" title=" " alt="" coords="150,153,201,110,260,71,288,60,283,63,263,75,204,115,154,156"/>
-<area shape="rect" id="Node000002" href="$classgridfire_1_1trigger_1_1solver_1_1_c_v_o_d_e_1_1_convergence_failure_trigger.html" title=" " alt="" coords="276,85,473,141"/>
-<area shape="poly" id="edge71_Node000000_Node000002" title=" " alt="" coords="217,158,282,140,278,143,220,163"/>
-<area shape="rect" id="Node000003" href="$classgridfire_1_1trigger_1_1solver_1_1_c_v_o_d_e_1_1_off_diagonal_trigger.html" title="Triggers when any off&#45;diagonal Jacobian entry magnitude exceeds a threshold." alt="" coords="280,165,469,221"/>
-<area shape="poly" id="edge72_Node000000_Node000003" title=" " alt="" coords="229,191,282,192,277,194,230,196"/>
-<area shape="rect" id="Node000004" href="$classgridfire_1_1trigger_1_1solver_1_1_c_v_o_d_e_1_1_simulation_time_trigger.html" title="Triggers when the current simulation time advances by at least a fixed interval." alt="" coords="269,245,480,301"/>
-<area shape="poly" id="edge73_Node000000_Node000004" title=" " alt="" coords="219,223,282,244,277,245,219,229"/>
-<area shape="rect" id="Node000005" href="$classgridfire_1_1trigger_1_1solver_1_1_c_v_o_d_e_1_1_timestep_collapse_trigger.html" title="Triggers when the timestep deviates from its recent average beyond a threshold." alt="" coords="262,325,487,381"/>
-<area shape="poly" id="edge74_Node000000_Node000005" title=" " alt="" coords="152,229,204,272,263,311,288,325,283,325,260,315,201,276,151,234"/>
+<area shape="rect" id="Node000000" href="$classgridfire_1_1solver_1_1_timestep_context_base.html" title="Base class for solver callback contexts." alt="" coords="5,27,171,68"/>
+<area shape="rect" id="Node000001" href="$class_py_timestep_context_base.html" title=" " alt="" coords="224,5,392,31"/>
+<area shape="poly" id="edge68_Node000000_Node000001" title=" " alt="" coords="185,32,226,29,221,30,186,37"/>
+<area shape="rect" id="Node000002" href="$structgridfire_1_1solver_1_1_point_solver_timestep_context.html" title=" " alt="" coords="219,55,397,96"/>
+<area shape="poly" id="edge69_Node000000_Node000002" title=" " alt="" coords="186,57,221,64,215,64,186,63"/>
 </map>

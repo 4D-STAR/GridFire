@@ -1,5 +1,3 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$classgridfire_1_1engine_1_1_engine_view.html" title=" " alt="" coords="5,5,160,61"/>
-<area shape="rect" id="Node000001" href="$class_py_dynamic_engine_view.html" title=" " alt="" coords="208,20,366,46"/>
-<area shape="poly" id="edge18_Node000000_Node000001" title=" " alt="" coords="175,31,210,33,204,33,175,36"/>
+<area shape="rect" id="Node000000" href="$classgridfire_1_1engine_1_1_engine_view.html" title="Abstract base class for a &quot;view&quot; of a reaction network engine." alt="" coords="5,5,160,46"/>
 </map>

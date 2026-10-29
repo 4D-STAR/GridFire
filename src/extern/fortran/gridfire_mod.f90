@@ -177,6 +177,51 @@ module gridfire_mod
 
             integer(c_int) :: ierr
         end function
+
+        ! int gf_evolve_ext(...) -- gf_evolve plus instantaneous final-state quantities
+        function gf_evolve_ext_c_scalar(ctx_type, ptr, Y_in, num_species, T, rho, tMax, dt0, &
+                Y_out, energy, dedt, dedrho, &
+                nue_loss, nu_flux, mass_lost, &
+                eps_nuc, dlneps_dlnt, dlneps_dlnrho, nue_loss_rate) result(ierr) &
+                bind(C, name="gf_evolve_ext")
+            import :: c_ptr, c_int, c_double, c_size_t
+            type(c_ptr), value :: ptr
+            integer(c_int), value :: ctx_type
+            integer(c_size_t), value :: num_species
+
+            real(c_double), dimension(*), intent(in) :: Y_in
+            real(c_double), dimension(*), intent(out) :: Y_out
+
+            real(c_double), intent(in) :: T, rho
+            real(c_double), intent(out) :: energy, dedt, dedrho, nue_loss, nu_flux, mass_lost
+            real(c_double), intent(out) :: eps_nuc, dlneps_dlnt, dlneps_dlnrho, nue_loss_rate
+
+            real(c_double), value :: tMax, dt0
+
+            integer(c_int) :: ierr
+        end function
+
+        function gf_evolve_ext_c_array(ctx_type, ptr, Y_in, num_species, T, rho, tMax, dt0, &
+                Y_out, energy, dedt, dedrho, &
+                nue_loss, nu_flux, mass_lost, &
+                eps_nuc, dlneps_dlnt, dlneps_dlnrho, nue_loss_rate) result(ierr) &
+                bind(C, name="gf_evolve_ext")
+            import :: c_ptr, c_int, c_double, c_size_t
+            type(c_ptr), value :: ptr
+            integer(c_int), value :: ctx_type
+            integer(c_size_t), value :: num_species
+
+            real(c_double), dimension(*), intent(in) :: Y_in
+            real(c_double), dimension(*), intent(in) :: T, rho
+
+            real(c_double), dimension(*), intent(out) :: Y_out
+            real(c_double), dimension(*), intent(out) :: energy, dedt, dedrho, nue_loss, nu_flux, mass_lost
+            real(c_double), dimension(*), intent(out) :: eps_nuc, dlneps_dlnt, dlneps_dlnrho, nue_loss_rate
+
+            real(c_double), value :: tMax, dt0
+
+            integer(c_int) :: ierr
+        end function
     end interface
 
     type :: GridFire
@@ -196,6 +241,11 @@ module gridfire_mod
         procedure :: gff_evolve_multi
 
         generic :: gff_evolve => gff_evolve_single, gff_evolve_multi
+
+        procedure :: gff_evolve_ext_single
+        procedure :: gff_evolve_ext_multi
+
+        generic :: gff_evolve_ext => gff_evolve_ext_single, gff_evolve_ext_multi
     end type GridFire
 
     contains
@@ -365,5 +415,49 @@ module gridfire_mod
                     energy, dedt, dedrho, nu_e_loss, nu_flux, mass_lost)
             ierr = int(c_ierr)
         end subroutine gff_evolve_multi
+
+        subroutine gff_evolve_ext_single(self, Y_in, T, rho, tMax, dt0, Y_out, energy, dedt, dedrho, nu_e_loss, nu_flux, mass_lost, &
+                eps_nuc, dlneps_dlnt, dlneps_dlnrho, nu_e_loss_rate, ierr)
+            class(GridFire), intent(in) :: self
+            real(c_double), dimension(:), intent(in) :: Y_in
+            real(c_double), intent(in) :: T, rho
+            real(c_double), value :: tMax, dt0
+
+            real(c_double), dimension(:), intent(out) :: Y_out
+            real(c_double), intent(out) :: energy, dedt, dedrho, nu_e_loss, nu_flux, mass_lost
+            real(c_double), intent(out) :: eps_nuc, dlneps_dlnt, dlneps_dlnrho, nu_e_loss_rate
+            integer, intent(out) :: ierr
+            integer(c_int) :: c_ierr
+
+            c_ierr = gf_evolve_ext_c_scalar(self%ctx_type, self%ctx, &
+                    Y_in, self%num_species, &
+                    T, rho, tMax, dt0, &
+                    Y_out, &
+                    energy, dedt, dedrho, nu_e_loss, nu_flux, mass_lost, &
+                    eps_nuc, dlneps_dlnt, dlneps_dlnrho, nu_e_loss_rate)
+            ierr = int(c_ierr)
+        end subroutine gff_evolve_ext_single
+
+        subroutine gff_evolve_ext_multi(self, Y_in, T, rho, tMax, dt0, Y_out, energy, dedt, dedrho, nu_e_loss, nu_flux, mass_lost, &
+                eps_nuc, dlneps_dlnt, dlneps_dlnrho, nu_e_loss_rate, ierr)
+            class(GridFire), intent(in) :: self
+            real(c_double), dimension(:,:), intent(in) :: Y_in
+            real(c_double), dimension(:), intent(in) :: T, rho
+            real(c_double), value :: tMax, dt0
+
+            real(c_double), dimension(:,:), intent(out) :: Y_out
+            real(c_double), dimension(:), intent(out) :: energy, dedt, dedrho, nu_e_loss, nu_flux, mass_lost
+            real(c_double), dimension(:), intent(out) :: eps_nuc, dlneps_dlnt, dlneps_dlnrho, nu_e_loss_rate
+            integer, intent(out) :: ierr
+            integer(c_int) :: c_ierr
+
+            c_ierr = gf_evolve_ext_c_array(self%ctx_type, self%ctx, &
+                    Y_in, self%num_species, &
+                    T, rho, tMax, dt0, &
+                    Y_out, &
+                    energy, dedt, dedrho, nu_e_loss, nu_flux, mass_lost, &
+                    eps_nuc, dlneps_dlnt, dlneps_dlnrho, nu_e_loss_rate)
+            ierr = int(c_ierr)
+        end subroutine gff_evolve_ext_multi
 
 end module gridfire_mod

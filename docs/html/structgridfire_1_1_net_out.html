@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">GridFire<span id="projectnumber">&#160;v1.0.2</span>
+   <div id="projectname">GridFire<span id="projectnumber">&#160;v1.1.0</span>
    </div>
    <div id="projectbrief">General Purpose Nuclear Network</div>
   </td>
@@ -132,6 +132,18 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a84a4f64f5a6b7ff965c36b4f7f8aa8f6" id="r_a84a4f64f5a6b7ff965c36b4f7f8aa8f6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84a4f64f5a6b7ff965c36b4f7f8aa8f6">specific_neutrino_flux</a></td></tr>
 <tr class="memdesc:a84a4f64f5a6b7ff965c36b4f7f8aa8f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total neutrino flux in neutrinos/g/s.  <br /></td></tr>
 <tr class="separator:a84a4f64f5a6b7ff965c36b4f7f8aa8f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45642cab003f11cc0936e2f4a91a4ca4" id="r_a45642cab003f11cc0936e2f4a91a4ca4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a45642cab003f11cc0936e2f4a91a4ca4">eps_nuc</a> = 0.0</td></tr>
+<tr class="memdesc:a45642cab003f11cc0936e2f4a91a4ca4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantaneous specific nuclear energy generation rate, net of reaction neutrino losses, in erg/g/s.  <br /></td></tr>
+<tr class="separator:a45642cab003f11cc0936e2f4a91a4ca4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a231ebb3c4731182b951e20afd500b41f" id="r_a231ebb3c4731182b951e20afd500b41f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a231ebb3c4731182b951e20afd500b41f">dlnEps_dlnT</a> = 0.0</td></tr>
+<tr class="memdesc:a231ebb3c4731182b951e20afd500b41f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logarithmic derivative (T/eps_nuc) * dEps_dT at fixed rho and composition (0 if eps_nuc == 0)  <br /></td></tr>
+<tr class="separator:a231ebb3c4731182b951e20afd500b41f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a977c172d34d57b905a908347fee141e9" id="r_a977c172d34d57b905a908347fee141e9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a977c172d34d57b905a908347fee141e9">dlnEps_dlnRho</a> = 0.0</td></tr>
+<tr class="memdesc:a977c172d34d57b905a908347fee141e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logarithmic derivative (rho/eps_nuc) * dEps_dRho at fixed T and composition (0 if eps_nuc == 0)  <br /></td></tr>
+<tr class="separator:a977c172d34d57b905a908347fee141e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ee94fec54cebb6e2fba3e43cbafd8f3" id="r_a3ee94fec54cebb6e2fba3e43cbafd8f3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ee94fec54cebb6e2fba3e43cbafd8f3">neutrino_energy_loss_rate</a> = 0.0</td></tr>
+<tr class="memdesc:a3ee94fec54cebb6e2fba3e43cbafd8f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantaneous reaction neutrino energy loss rate in erg/g/s.  <br /></td></tr>
+<tr class="separator:a3ee94fec54cebb6e2fba3e43cbafd8f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
@@ -217,6 +229,38 @@ Friends</h2></td></tr>
 
 </div>
 </div>
+<a id="a977c172d34d57b905a908347fee141e9" name="a977c172d34d57b905a908347fee141e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a977c172d34d57b905a908347fee141e9">&#9670;&#160;</a></span>dlnEps_dlnRho</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double gridfire::NetOut::dlnEps_dlnRho = 0.0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Logarithmic derivative (rho/eps_nuc) * dEps_dRho at fixed T and composition (0 if eps_nuc == 0) </p>
+
+</div>
+</div>
+<a id="a231ebb3c4731182b951e20afd500b41f" name="a231ebb3c4731182b951e20afd500b41f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a231ebb3c4731182b951e20afd500b41f">&#9670;&#160;</a></span>dlnEps_dlnT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double gridfire::NetOut::dlnEps_dlnT = 0.0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Logarithmic derivative (T/eps_nuc) * dEps_dT at fixed rho and composition (0 if eps_nuc == 0) </p>
+
+</div>
+</div>
 <a id="a43d5a861708992c949f616aa2a035ec6" name="a43d5a861708992c949f616aa2a035ec6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a43d5a861708992c949f616aa2a035ec6">&#9670;&#160;</a></span>energy</h2>
 
@@ -230,6 +274,38 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Energy in ergs after evaluation. </p>
+
+</div>
+</div>
+<a id="a45642cab003f11cc0936e2f4a91a4ca4" name="a45642cab003f11cc0936e2f4a91a4ca4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45642cab003f11cc0936e2f4a91a4ca4">&#9670;&#160;</a></span>eps_nuc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double gridfire::NetOut::eps_nuc = 0.0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Instantaneous specific nuclear energy generation rate, net of reaction neutrino losses, in erg/g/s. </p>
+
+</div>
+</div>
+<a id="a3ee94fec54cebb6e2fba3e43cbafd8f3" name="a3ee94fec54cebb6e2fba3e43cbafd8f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ee94fec54cebb6e2fba3e43cbafd8f3">&#9670;&#160;</a></span>neutrino_energy_loss_rate</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double gridfire::NetOut::neutrino_energy_loss_rate = 0.0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Instantaneous reaction neutrino energy loss rate in erg/g/s. </p>
 
 </div>
 </div>

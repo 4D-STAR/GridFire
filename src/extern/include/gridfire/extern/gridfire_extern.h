@@ -105,6 +105,37 @@ extern "C" {
         void* mass_lost
     );
 
+    /**
+     * Same as gf_evolve, but additionally returns the instantaneous quantities at the final state. These are evaluated
+     * at the same composition, temperature, and density as dEps_dT and dEps_dRho, so the four are mutually consistent:
+     *   eps_nuc                   - specific nuclear energy generation rate net of reaction neutrino losses [erg/g/s]
+     *   dlnEps_dlnT               - (T / eps_nuc) * dEps_dT   (0 if eps_nuc == 0)
+     *   dlnEps_dlnRho             - (rho / eps_nuc) * dEps_dRho (0 if eps_nuc == 0)
+     *   neutrino_energy_loss_rate - reaction neutrino energy loss rate [erg/g/s]
+     * For MULTI_ZONE each of these is an array with one entry per zone.
+     */
+    int gf_evolve_ext(
+        enum GF_TYPE type,
+        void* ptr,
+        const void* Y_in,
+        size_t num_species,
+        const void* T,
+        const void* rho,
+        double tMax,
+        double dt0,
+        void* Y_out,
+        void* energy_out,
+        void* dEps_dT,
+        void* dEps_dRho,
+        void* specific_neutrino_energy_loss,
+        void* specific_neutrino_flux,
+        void* mass_lost,
+        void* eps_nuc,
+        void* dlnEps_dlnT,
+        void* dlnEps_dlnRho,
+        void* neutrino_energy_loss_rate
+    );
+
 #ifdef __cplusplus
 }
 #endif

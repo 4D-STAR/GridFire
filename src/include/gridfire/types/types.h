@@ -44,8 +44,14 @@ namespace gridfire {
         double specific_neutrino_energy_loss; ///< Neutrino energy loss rate in ergs/g/s
         double specific_neutrino_flux; ///< Total neutrino flux in neutrinos/g/s
 
+        // --- Instantaneous quantities at the final state (same composition, T, and rho as dEps_dT and dEps_dRho) ---
+        double eps_nuc = 0.0; ///< Instantaneous specific nuclear energy generation rate, net of reaction neutrino losses, in erg/g/s
+        double dlnEps_dlnT = 0.0; ///< Logarithmic derivative (T/eps_nuc) * dEps_dT at fixed rho and composition (0 if eps_nuc == 0)
+        double dlnEps_dlnRho = 0.0; ///< Logarithmic derivative (rho/eps_nuc) * dEps_dRho at fixed T and composition (0 if eps_nuc == 0)
+        double neutrino_energy_loss_rate = 0.0; ///< Instantaneous reaction neutrino energy loss rate in erg/g/s
+
         friend std::ostream& operator<<(std::ostream& os, const NetOut& netOut) {
-            os << "NetOut(composition=" << netOut.composition << ", num_steps=" << netOut.num_steps << ", ε=" << netOut.energy << ", dε/dT=" << netOut.dEps_dT << ", dε/dρ=" << netOut.dEps_dRho << ")";
+            os << "NetOut(composition=" << netOut.composition << ", num_steps=" << netOut.num_steps << ", ε=" << netOut.energy << ", dε/dT=" << netOut.dEps_dT << ", dε/dρ=" << netOut.dEps_dRho << ", ε_nuc=" << netOut.eps_nuc << ")";
             return os;
         }
     };
@@ -79,7 +85,8 @@ struct std::formatter<gridfire::NetOut> : std::formatter<std::string> {
         std::string output = "NetOut(, num_steps=" + std::to_string(netOut.num_steps) +
                              ", energy=" + std::to_string(netOut.energy) +
                              ", dEps_dT=" + std::to_string(netOut.dEps_dT) +
-                             ", dEps_dRho=" + std::to_string(netOut.dEps_dRho) + ")";
+                             ", dEps_dRho=" + std::to_string(netOut.dEps_dRho) +
+                             ", eps_nuc=" + std::to_string(netOut.eps_nuc) + ")";
         return std::formatter<std::string>::format(output, ctx);
     }
 };

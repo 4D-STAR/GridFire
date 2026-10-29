@@ -25,12 +25,14 @@ var searchData=
   ['detailed_5fstep_5flogging_22',['detailed_step_logging',['../structgridfire_1_1solver_1_1_point_solver_context.html#a895377662ff062bb83dd77226fa01c69',1,'gridfire::solver::PointSolverContext']]],
   ['developers_23',['source for developers',['../index.html#autotoc_md9',1,'']]],
   ['development_20from_20source_24',['1.2 Development from Source',['../md_docs_2static_2usage.html#autotoc_md66',1,'']]],
-  ['dt_25',['dt',['../structgridfire_1_1solver_1_1_point_solver_timestep_context.html#a976046c4a6a70b1d5bad48a936885250',1,'gridfire::solver::PointSolverTimestepContext']]],
-  ['dt0_26',['dt0',['../structgridfire_1_1_net_in.html#a4e556f7bb18f46654b3445476734076a',1,'gridfire::NetIn']]],
-  ['dydt_27',['dydt',['../structgridfire_1_1engine_1_1_step_derivatives.html#aad90bec88a31fce600c60c29835410b1',1,'gridfire::engine::StepDerivatives']]],
-  ['dydt_5fvector_28',['dydt_vector',['../structgridfire_1_1engine_1_1_graph_engine_1_1_precomputation_kernel_results.html#a4dce937771ebdb26002a79e37f975358',1,'gridfire::engine::GraphEngine::PrecomputationKernelResults']]],
-  ['dynamic_5fengine_5fdiagnostics_2ecpp_29',['dynamic_engine_diagnostics.cpp',['../dynamic__engine__diagnostics_8cpp.html',1,'']]],
-  ['dynamic_5fengine_5fdiagnostics_2eh_30',['dynamic_engine_diagnostics.h',['../dynamic__engine__diagnostics_8h.html',1,'']]],
-  ['dynamic_5fspecies_31',['dynamic_species',['../structgridfire_1_1engine_1_1scratch_1_1_multiscale_partitioning_engine_view_scratch_pad.html#a38ea81d9d616cd0f74747e44948f4ab9',1,'gridfire::engine::scratch::MultiscalePartitioningEngineViewScratchPad']]],
-  ['dynamicengine_32',['DynamicEngine',['../classgridfire_1_1engine_1_1_dynamic_engine.html',1,'gridfire::engine']]]
+  ['dlneps_5fdlnrho_25',['dlnEps_dlnRho',['../struct_g_f_instantaneous_outputs.html#a9455a4037f5a7682dd972bdfd477317c',1,'GFInstantaneousOutputs::dlnEps_dlnRho'],['../structgridfire_1_1_net_out.html#a977c172d34d57b905a908347fee141e9',1,'gridfire::NetOut::dlnEps_dlnRho']]],
+  ['dlneps_5fdlnt_26',['dlnEps_dlnT',['../struct_g_f_instantaneous_outputs.html#a385081374aaee62a7e0f7ee55da04fe7',1,'GFInstantaneousOutputs::dlnEps_dlnT'],['../structgridfire_1_1_net_out.html#a231ebb3c4731182b951e20afd500b41f',1,'gridfire::NetOut::dlnEps_dlnT']]],
+  ['dt_27',['dt',['../structgridfire_1_1solver_1_1_point_solver_timestep_context.html#a976046c4a6a70b1d5bad48a936885250',1,'gridfire::solver::PointSolverTimestepContext']]],
+  ['dt0_28',['dt0',['../structgridfire_1_1_net_in.html#a4e556f7bb18f46654b3445476734076a',1,'gridfire::NetIn']]],
+  ['dydt_29',['dydt',['../structgridfire_1_1engine_1_1_step_derivatives.html#aad90bec88a31fce600c60c29835410b1',1,'gridfire::engine::StepDerivatives']]],
+  ['dydt_5fvector_30',['dydt_vector',['../structgridfire_1_1engine_1_1_graph_engine_1_1_precomputation_kernel_results.html#a4dce937771ebdb26002a79e37f975358',1,'gridfire::engine::GraphEngine::PrecomputationKernelResults']]],
+  ['dynamic_5fengine_5fdiagnostics_2ecpp_31',['dynamic_engine_diagnostics.cpp',['../dynamic__engine__diagnostics_8cpp.html',1,'']]],
+  ['dynamic_5fengine_5fdiagnostics_2eh_32',['dynamic_engine_diagnostics.h',['../dynamic__engine__diagnostics_8h.html',1,'']]],
+  ['dynamic_5fspecies_33',['dynamic_species',['../structgridfire_1_1engine_1_1scratch_1_1_multiscale_partitioning_engine_view_scratch_pad.html#a38ea81d9d616cd0f74747e44948f4ab9',1,'gridfire::engine::scratch::MultiscalePartitioningEngineViewScratchPad']]],
+  ['dynamicengine_34',['DynamicEngine',['../classgridfire_1_1engine_1_1_dynamic_engine.html',1,'gridfire::engine']]]
 ];

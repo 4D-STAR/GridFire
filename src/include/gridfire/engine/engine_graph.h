@@ -888,6 +888,11 @@ namespace gridfire::engine {
             double netFlow,
             const reaction::Reaction &reaction) const;
 
+        /**
+         * @brief Neutrino energy carried away per unit net molar reaction flow [erg][mol^-1] (0 for non-weak reactions).
+         */
+        [[nodiscard]] double neutrino_energy_loss_per_molar_flow(const reaction::Reaction &reaction) const;
+
         PrecomputationKernelResults accumulate_flows_serial(
             scratch::StateBlob& ctx,
             const std::vector<double>& local_abundances,
@@ -1106,6 +1111,7 @@ namespace gridfire::engine {
 
         // --- SINGLE LOOP OVER ALL REACTIONS ---
         StepDerivatives<T> result{};
+        T neutrinoEnergyLossRate = static_cast<T>(0.0); // [erg][s^-1][g^-1]
         for (size_t reactionIndex = 0; reactionIndex < m_reactions.size(); ++reactionIndex) {
             bool skipReaction = false;
             const auto& reaction = m_reactions[reactionIndex];
@@ -1152,6 +1158,9 @@ namespace gridfire::engine {
 
             const T molarReactionFlow = forwardMolarReactionFlow - reverseMolarFlow; // Net molar reaction flow
 
+            // Neutrino losses are subtracted from eps so that this (and therefore the AD tape) matches the precomputed RHS
+            neutrinoEnergyLossRate += threshold_flag * molarReactionFlow * static_cast<T>(neutrino_energy_loss_per_molar_flow(reaction));
+
             // 3. Use the rate to update all relevant species derivatives (dY/dt)
             for (size_t speciesIdx = 0; speciesIdx < m_networkSpecies.size(); ++speciesIdx) {
                 const auto& species = m_networkSpecies[speciesIdx];
@@ -1173,6 +1182,8 @@ namespace gridfire::engine {
         }
 
         result.nuclearEnergyGenerationRate = -massProductionRate * N_A * c * c; // [cm^2][s^-3] = [erg][s^-1][g^-1]
+        result.neutrinoEnergyLossRate = neutrinoEnergyLossRate;
+        result.nuclearEnergyGenerationRate -= neutrinoEnergyLossRate;
 
         return result;
     }

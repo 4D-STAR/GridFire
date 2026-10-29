@@ -187,7 +187,9 @@ namespace gridfire::engine {
         if (m_usePrecomputation) {
             const std::size_t state_hash = utils::hash_state(comp, T9, rho, activeReactions);
             if (state->stepDerivativesCache.contains(state_hash)) {
-                return state->stepDerivativesCache.at(state_hash);
+                const StepDerivatives<double>& cached = state->stepDerivativesCache.at(state_hash);
+                state->most_recent_rhs_calculation = cached;
+                return cached;
             }
             LOG_TRACE_L3(m_logger, "Using precomputation for reaction rates in GraphEngine calculateRHSAndEnergy.");
             std::vector<double> bare_rates;
@@ -473,30 +475,38 @@ namespace gridfire::engine {
         return forwardMolarReactionFlow - reverseMolarReactionFlow;
     }
 
+    double GraphEngine::neutrino_energy_loss_per_molar_flow(
+        const reaction::Reaction &reaction
+    ) const {
+        if (reaction.type() != reaction::ReactionType::REACLIB_WEAK) {
+            return 0.0;
+        }
+        const double q_abs = std::abs(reaction.qValue());
+        const REACLIB_WEAK_TYPES weakType = get_weak_reaclib_reaction_type(reaction);
+        double neutrino_loss_fraction = 0.0;
+        switch (weakType) {
+            case REACLIB_WEAK_TYPES::BETA_PLUS_DECAY:
+                [[fallthrough]];
+            case REACLIB_WEAK_TYPES::BETA_MINUS_DECAY:
+                neutrino_loss_fraction = 0.5; // Approximate 50% energy loss to neutrinos for beta decays
+                break;
+            case REACLIB_WEAK_TYPES::ELECTRON_CAPTURE:
+                [[fallthrough]];
+            case REACLIB_WEAK_TYPES::POSITRON_CAPTURE:
+                neutrino_loss_fraction = 1.0;
+                break;
+            default: ;
+        }
+        return q_abs * neutrino_loss_fraction * m_constants.Na * m_constants.MeV_to_erg;
+    }
+
     std::pair<double, double> GraphEngine::compute_neutrino_fluxes(
         scratch::StateBlob& ctx,
         const double netFlow,
         const reaction::Reaction &reaction
     ) const {
         if (reaction.type() == reaction::ReactionType::REACLIB_WEAK) {
-            const double q_abs = std::abs(reaction.qValue());
-            const REACLIB_WEAK_TYPES weakType = get_weak_reaclib_reaction_type(reaction);
-            double neutrino_loss_fraction = 0.0;
-            switch (weakType) {
-                case REACLIB_WEAK_TYPES::BETA_PLUS_DECAY:
-                    [[fallthrough]];
-                case REACLIB_WEAK_TYPES::BETA_MINUS_DECAY:
-                    neutrino_loss_fraction = 0.5; // Approximate 50% energy loss to neutrinos for beta decays
-                    break;
-                case REACLIB_WEAK_TYPES::ELECTRON_CAPTURE:
-                    [[fallthrough]];
-                case REACLIB_WEAK_TYPES::POSITRON_CAPTURE:
-                    neutrino_loss_fraction = 1.0;
-                    break;
-                default: ;
-            }
-
-            const double local_neutrino_loss =  netFlow * q_abs * neutrino_loss_fraction * m_constants.Na * m_constants.MeV_to_erg;
+            const double local_neutrino_loss = netFlow * neutrino_energy_loss_per_molar_flow(reaction);
             const double local_neutrino_flux = netFlow * m_constants.Na;
 
             return {local_neutrino_loss, local_neutrino_flux};

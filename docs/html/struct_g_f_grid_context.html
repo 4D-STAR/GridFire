@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">GridFire<span id="projectnumber">&#160;v1.0.2</span>
+   <div id="projectname">GridFire<span id="projectnumber">&#160;v1.1.0</span>
    </div>
    <div id="projectbrief">General Purpose Nuclear Network</div>
   </td>
@@ -127,8 +127,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae6bbc4c400e9afb1d57087a7cdc00d60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8136e0c3ad23934ff254fac1f33ab5b8" id="r_a8136e0c3ad23934ff254fac1f33ab5b8"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8136e0c3ad23934ff254fac1f33ab5b8">get_zones</a> () const</td></tr>
 <tr class="separator:a8136e0c3ad23934ff254fac1f33ab5b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79ccefa304bba5d0c82426f9e2817e16" id="r_a79ccefa304bba5d0c82426f9e2817e16"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79ccefa304bba5d0c82426f9e2817e16">evolve</a> (const double *Y_in, size_t num_species, const double *T, const double *rho, double tMax, double dt0, double *Y_out, double *energy_out, double *dEps_dT, double *dEps_dRho, double *specific_neutrino_energy_loss, double *specific_neutrino_flux, double *mass_lost) const</td></tr>
-<tr class="separator:a79ccefa304bba5d0c82426f9e2817e16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17d18a31bdeae168e3ed753eb9e8e2a1" id="r_a17d18a31bdeae168e3ed753eb9e8e2a1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17d18a31bdeae168e3ed753eb9e8e2a1">evolve</a> (const double *Y_in, size_t num_species, const double *T, const double *rho, double tMax, double dt0, double *Y_out, double *energy_out, double *dEps_dT, double *dEps_dRho, double *specific_neutrino_energy_loss, double *specific_neutrino_flux, double *mass_lost, const <a class="el" href="struct_g_f_instantaneous_outputs.html">GFInstantaneousOutputs</a> *instantaneous=nullptr) const</td></tr>
+<tr class="separator:a17d18a31bdeae168e3ed753eb9e8e2a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_struct_g_f_context"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_struct_g_f_context')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="struct_g_f_context.html">GFContext</a></td></tr>
 <tr class="memitem:a4da09184145ea3bddef5dee206dea458 inherit pub_methods_struct_g_f_context" id="r_a4da09184145ea3bddef5dee206dea458"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_f_context.html#a4da09184145ea3bddef5dee206dea458">~GFContext</a> ()=default</td></tr>
 <tr class="separator:a4da09184145ea3bddef5dee206dea458 inherit pub_methods_struct_g_f_context"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -162,8 +162,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a82e384a1c565caee2f23eaeccd701a58 inherit pub_attribs_struct_g_f_context"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a79ccefa304bba5d0c82426f9e2817e16" name="a79ccefa304bba5d0c82426f9e2817e16"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79ccefa304bba5d0c82426f9e2817e16">&#9670;&#160;</a></span>evolve()</h2>
+<a id="a17d18a31bdeae168e3ed753eb9e8e2a1" name="a17d18a31bdeae168e3ed753eb9e8e2a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17d18a31bdeae168e3ed753eb9e8e2a1">&#9670;&#160;</a></span>evolve()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -231,7 +231,12 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>mass_lost</em></span>&#160;) const</td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>mass_lost</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_g_f_instantaneous_outputs.html">GFInstantaneousOutputs</a> *</td>          <td class="paramname"><span class="paramname"><em>instantaneous</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;) const</td>
         </tr>
       </table>
 </div><div class="memdoc">

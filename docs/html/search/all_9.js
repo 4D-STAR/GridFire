@@ -106,12 +106,13 @@ var searchData=
   ['currentnonlineariterations_103',['currentNonlinearIterations',['../structgridfire_1_1solver_1_1_point_solver_timestep_context.html#ad2c3941768d61d828400ea0cbf984bda',1,'gridfire::solver::PointSolverTimestepContext']]],
   ['cvode_104',['CVODE',['../namespacegridfire_1_1utils.html#a7cea622c9311bfd0f0b9d7b6298ea04eadd3b4add4b240136cb05dccdd9f74239',1,'gridfire::utils']]],
   ['cvode_5ferror_5fhandler_105',['cvode_error_handler',['../classgridfire_1_1solver_1_1_point_solver.html#a153f72c17a795f220ac6f674d2ad4ab6',1,'gridfire::solver::PointSolver']]],
-  ['cvode_5fjac_5fwrapper_106',['cvode_jac_wrapper',['../classgridfire_1_1solver_1_1_point_solver.html#ab0eb347e114510de0dfeb9d86fb40c9d',1,'gridfire::solver::PointSolver']]],
-  ['cvode_5fmem_107',['cvode_mem',['../structgridfire_1_1solver_1_1_point_solver_context.html#a91614f1e009159d89e4c5a6c3dcc35a9',1,'gridfire::solver::PointSolverContext']]],
-  ['cvode_5fret_5fcode_5fmap_108',['cvode_ret_code_map',['../namespacegridfire_1_1utils.html#a06d386929b2274e2593b97868be2ac51',1,'gridfire::utils']]],
-  ['cvode_5frhs_5fwrapper_109',['cvode_rhs_wrapper',['../classgridfire_1_1solver_1_1_point_solver.html#acbfc90a7439f7a8a377d98571bade26b',1,'gridfire::solver::PointSolver']]],
-  ['cvoderhsoutputdata_110',['CVODERHSOutputData',['../structgridfire_1_1solver_1_1_point_solver_1_1_c_v_o_d_e_r_h_s_output_data.html',1,'gridfire::solver::PointSolver']]],
-  ['cvodesolverfailureerror_111',['CVODESolverFailureError',['../classgridfire_1_1exceptions_1_1_c_v_o_d_e_solver_failure_error.html',1,'gridfire::exceptions']]],
-  ['cvodesolverstrategy_112',['CVODESolverStrategy',['../index.html#autotoc_md44',1,'']]],
-  ['cvodeuserdata_113',['CVODEUserData',['../structgridfire_1_1solver_1_1_point_solver_1_1_c_v_o_d_e_user_data.html',1,'gridfire::solver::PointSolver']]]
+  ['cvode_5ferror_5fweight_5fwrapper_106',['cvode_error_weight_wrapper',['../classgridfire_1_1solver_1_1_point_solver.html#ad0736bf92add418993bb2ab91bd5c2e0',1,'gridfire::solver::PointSolver']]],
+  ['cvode_5fjac_5fwrapper_107',['cvode_jac_wrapper',['../classgridfire_1_1solver_1_1_point_solver.html#ab0eb347e114510de0dfeb9d86fb40c9d',1,'gridfire::solver::PointSolver']]],
+  ['cvode_5fmem_108',['cvode_mem',['../structgridfire_1_1solver_1_1_point_solver_context.html#a91614f1e009159d89e4c5a6c3dcc35a9',1,'gridfire::solver::PointSolverContext']]],
+  ['cvode_5fret_5fcode_5fmap_109',['cvode_ret_code_map',['../namespacegridfire_1_1utils.html#a06d386929b2274e2593b97868be2ac51',1,'gridfire::utils']]],
+  ['cvode_5frhs_5fwrapper_110',['cvode_rhs_wrapper',['../classgridfire_1_1solver_1_1_point_solver.html#acbfc90a7439f7a8a377d98571bade26b',1,'gridfire::solver::PointSolver']]],
+  ['cvoderhsoutputdata_111',['CVODERHSOutputData',['../structgridfire_1_1solver_1_1_point_solver_1_1_c_v_o_d_e_r_h_s_output_data.html',1,'gridfire::solver::PointSolver']]],
+  ['cvodesolverfailureerror_112',['CVODESolverFailureError',['../classgridfire_1_1exceptions_1_1_c_v_o_d_e_solver_failure_error.html',1,'gridfire::exceptions']]],
+  ['cvodesolverstrategy_113',['CVODESolverStrategy',['../index.html#autotoc_md44',1,'']]],
+  ['cvodeuserdata_114',['CVODEUserData',['../structgridfire_1_1solver_1_1_point_solver_1_1_c_v_o_d_e_user_data.html',1,'gridfire::solver::PointSolver']]]
 ];

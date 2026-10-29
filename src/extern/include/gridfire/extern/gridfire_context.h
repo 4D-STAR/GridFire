@@ -7,6 +7,21 @@
 #include <memory>
 #include <vector>
 
+/**
+ * @brief Optional destinations for the instantaneous final-state quantities in NetOut.
+ *
+ * For a point context each pointer refers to a single double; for a grid context each refers to an array with one
+ * entry per zone. A null member (or a null struct) means that quantity is not written.
+ */
+struct GFInstantaneousOutputs {
+    double* eps_nuc = nullptr;
+    double* dlnEps_dlnT = nullptr;
+    double* dlnEps_dlnRho = nullptr;
+    double* neutrino_energy_loss_rate = nullptr;
+
+    void write(const gridfire::NetOut& netOut, size_t index) const;
+};
+
 enum class GFContextType {
     POINT,
     GRID
@@ -47,7 +62,8 @@ struct GFPointContext final: GFContext{
         double& dEps_dRho,
         double& specific_neutrino_energy_loss,
         double& specific_neutrino_flux,
-        double& mass_lost
+        double& mass_lost,
+        const GFInstantaneousOutputs* instantaneous = nullptr
     ) const;
 
 };
@@ -82,7 +98,8 @@ struct GFGridContext final : GFContext {
         double* dEps_dRho,
         double* specific_neutrino_energy_loss,
         double* specific_neutrino_flux,
-        double* mass_lost
+        double* mass_lost,
+        const GFInstantaneousOutputs* instantaneous = nullptr
     ) const;
 
 };

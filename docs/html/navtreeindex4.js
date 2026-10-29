@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"classgridfire_1_1partition_1_1_ground_state_partition_function.html":[6,0,0,5,2],
+"classgridfire_1_1partition_1_1_ground_state_partition_function.html":[8,0,0,4,2],
 "classgridfire_1_1partition_1_1_ground_state_partition_function.html#a0e75ec9b97529783e07953aaf7d70f68":[6,0,0,5,2,4],
 "classgridfire_1_1partition_1_1_ground_state_partition_function.html#a0e75ec9b97529783e07953aaf7d70f68":[8,0,0,4,2,4],
 "classgridfire_1_1partition_1_1_ground_state_partition_function.html#a0eff10c7b134d9d4081ad72bbc785c5b":[6,0,0,5,2,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX4 =
 "classgridfire_1_1policy_1_1_proton_proton_i_chain_policy.html":[6,0,0,6,15],
 "classgridfire_1_1policy_1_1_proton_proton_i_chain_policy.html":[8,0,0,5,15],
 "classgridfire_1_1policy_1_1_proton_proton_i_chain_policy.html#a2721f00e9edefeb3d4bfc02a37777a47":[6,0,0,6,15,0],
-"classgridfire_1_1policy_1_1_proton_proton_i_chain_policy.html#a2721f00e9edefeb3d4bfc02a37777a47":[8,0,0,5,15,0],
-"classgridfire_1_1policy_1_1_proton_proton_i_chain_policy.html#ab9542fd71e87159216cdd51501b6d1d3":[6,0,0,6,15,2],
-"classgridfire_1_1policy_1_1_proton_proton_i_chain_policy.html#ab9542fd71e87159216cdd51501b6d1d3":[8,0,0,5,15,2]
+"classgridfire_1_1policy_1_1_proton_proton_i_chain_policy.html#a2721f00e9edefeb3d4bfc02a37777a47":[8,0,0,5,15,0]
 };

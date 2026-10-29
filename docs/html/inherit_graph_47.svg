@@ -11,10 +11,10 @@
 <!-- Node0 -->
 <g id="Node000000" class="node">
 <title>Node0</title>
-<g id="a_Node000000"><a xlink:href="structgridfire_1_1rates_1_1weak_1_1_rate_data_row.html" target="_top" xlink:title="One row of the unified weak&#45;rate data table for a specific isotope and state.">
+<g id="a_Node000000"><a xlink:href="structgridfire_1_1rates_1_1weak_1_1_isotope_grid.html" target="_top" xlink:title="Regular 2D grid and payloads for a single isotope (A,Z).">
 <polygon fill="white" stroke="#666666" points="102.25,-30.5 0,-30.5 0,0 102.25,0 102.25,-30.5"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-17" font-family="Helvetica,sans-Serif" font-size="10.00">gridfire::rates::weak</text>
-<text xml:space="preserve" text-anchor="middle" x="51.12" y="-5.75" font-family="Helvetica,sans-Serif" font-size="10.00">::RateDataRow</text>
+<text xml:space="preserve" text-anchor="middle" x="51.12" y="-5.75" font-family="Helvetica,sans-Serif" font-size="10.00">::IsotopeGrid</text>
 </a>
 </g>
 </g>

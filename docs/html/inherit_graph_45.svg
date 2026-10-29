@@ -11,10 +11,10 @@
 <!-- Node0 -->
 <g id="Node000000" class="node">
 <title>Node0</title>
-<g id="a_Node000000"><a xlink:href="structgridfire_1_1rates_1_1weak_1_1_interpolation_error.html" target="_top" xlink:title="Interpolation error with optional per&#45;axis bounds details.">
+<g id="a_Node000000"><a xlink:href="structgridfire_1_1rates_1_1weak_1_1_bounds_error_info.html" target="_top" xlink:title="Detailed bounds information for a BOUNDS_ERROR.">
 <polygon fill="white" stroke="#666666" points="102.25,-30.5 0,-30.5 0,0 102.25,0 102.25,-30.5"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-17" font-family="Helvetica,sans-Serif" font-size="10.00">gridfire::rates::weak</text>
-<text xml:space="preserve" text-anchor="middle" x="51.12" y="-5.75" font-family="Helvetica,sans-Serif" font-size="10.00">::InterpolationError</text>
+<text xml:space="preserve" text-anchor="middle" x="51.12" y="-5.75" font-family="Helvetica,sans-Serif" font-size="10.00">::BoundsErrorInfo</text>
 </a>
 </g>
 </g>

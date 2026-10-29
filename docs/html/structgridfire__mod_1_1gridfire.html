@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">GridFire<span id="projectnumber">&#160;v1.0.2</span>
+   <div id="projectname">GridFire<span id="projectnumber">&#160;v1.1.0</span>
    </div>
    <div id="projectbrief">General Purpose Nuclear Network</div>
   </td>
@@ -129,6 +129,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3404cadb40ea5287e9cc3472129cd456"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3404cadb40ea5287e9cc3472129cd456" id="r_a3404cadb40ea5287e9cc3472129cd456"><td class="memItemLeft" align="right" valign="top">generic&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3404cadb40ea5287e9cc3472129cd456">gff_evolve</a> (self, y_in, t, rho, tmax, dt0, y_out, energy, dedt, dedrho, nu_e_loss, nu_flux, mass_lost, ierr)</td></tr>
 <tr class="separator:a3404cadb40ea5287e9cc3472129cd456"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85cae59be6650ba356efee1078792155" id="r_a85cae59be6650ba356efee1078792155"><td class="memItemLeft" align="right" valign="top">procedure&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a85cae59be6650ba356efee1078792155">gff_evolve_ext_single</a> (self, y_in, t, rho, tmax, dt0, y_out, energy, dedt, dedrho, nu_e_loss, nu_flux, mass_lost, eps_nuc, dlneps_dlnt, dlneps_dlnrho, nu_e_loss_rate, ierr)</td></tr>
+<tr class="separator:a85cae59be6650ba356efee1078792155"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cfb03b8e9a2fb96fcf9027119e42aeb" id="r_a0cfb03b8e9a2fb96fcf9027119e42aeb"><td class="memItemLeft" align="right" valign="top">procedure&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0cfb03b8e9a2fb96fcf9027119e42aeb">gff_evolve_ext_multi</a> (self, y_in, t, rho, tmax, dt0, y_out, energy, dedt, dedrho, nu_e_loss, nu_flux, mass_lost, eps_nuc, dlneps_dlnt, dlneps_dlnrho, nu_e_loss_rate, ierr)</td></tr>
+<tr class="separator:a0cfb03b8e9a2fb96fcf9027119e42aeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2807f364241ae065f52301298fa9bc7" id="r_ac2807f364241ae065f52301298fa9bc7"><td class="memItemLeft" align="right" valign="top">generic&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2807f364241ae065f52301298fa9bc7">gff_evolve_ext</a> (self, y_in, t, rho, tmax, dt0, y_out, energy, dedt, dedrho, nu_e_loss, nu_flux, mass_lost, eps_nuc, dlneps_dlnt, dlneps_dlnrho, nu_e_loss_rate, ierr)</td></tr>
+<tr class="separator:ac2807f364241ae065f52301298fa9bc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2807f364241ae065f52301298fa9bc7" id="r_ac2807f364241ae065f52301298fa9bc7"><td class="memItemLeft" align="right" valign="top">generic&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2807f364241ae065f52301298fa9bc7">gff_evolve_ext</a> (self, y_in, t, rho, tmax, dt0, y_out, energy, dedt, dedrho, nu_e_loss, nu_flux, mass_lost, eps_nuc, dlneps_dlnt, dlneps_dlnrho, nu_e_loss_rate, ierr)</td></tr>
+<tr class="separator:ac2807f364241ae065f52301298fa9bc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -293,6 +301,410 @@ Public Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">real(c_double), dimension(:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>mass_lost</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>ierr</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac2807f364241ae065f52301298fa9bc7" name="ac2807f364241ae065f52301298fa9bc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2807f364241ae065f52301298fa9bc7">&#9670;&#160;</a></span>gff_evolve_ext() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">generic gridfire_mod::gridfire::gff_evolve_ext </td>
+          <td>(</td>
+          <td class="paramtype">class(<a class="el" href="structgridfire__mod_1_1gridfire.html">gridfire</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>y_in</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), intent(in)</td>          <td class="paramname"><span class="paramname"><em>t</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rho</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), value</td>          <td class="paramname"><span class="paramname"><em>tmax</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), value</td>          <td class="paramname"><span class="paramname"><em>dt0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>y_out</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), intent(out)</td>          <td class="paramname"><span class="paramname"><em>energy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), intent(out)</td>          <td class="paramname"><span class="paramname"><em>dedt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), intent(out)</td>          <td class="paramname"><span class="paramname"><em>dedrho</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), intent(out)</td>          <td class="paramname"><span class="paramname"><em>nu_e_loss</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), intent(out)</td>          <td class="paramname"><span class="paramname"><em>nu_flux</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), intent(out)</td>          <td class="paramname"><span class="paramname"><em>mass_lost</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), intent(out)</td>          <td class="paramname"><span class="paramname"><em>eps_nuc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), intent(out)</td>          <td class="paramname"><span class="paramname"><em>dlneps_dlnt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), intent(out)</td>          <td class="paramname"><span class="paramname"><em>dlneps_dlnrho</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), intent(out)</td>          <td class="paramname"><span class="paramname"><em>nu_e_loss_rate</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>ierr</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac2807f364241ae065f52301298fa9bc7" name="ac2807f364241ae065f52301298fa9bc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2807f364241ae065f52301298fa9bc7">&#9670;&#160;</a></span>gff_evolve_ext() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">generic gridfire_mod::gridfire::gff_evolve_ext </td>
+          <td>(</td>
+          <td class="paramtype">class(<a class="el" href="structgridfire__mod_1_1gridfire.html">gridfire</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:,:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>y_in</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>t</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rho</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), value</td>          <td class="paramname"><span class="paramname"><em>tmax</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), value</td>          <td class="paramname"><span class="paramname"><em>dt0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:,:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>y_out</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>energy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>dedt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>dedrho</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>nu_e_loss</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>nu_flux</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>mass_lost</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>eps_nuc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>dlneps_dlnt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>dlneps_dlnrho</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>nu_e_loss_rate</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>ierr</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0cfb03b8e9a2fb96fcf9027119e42aeb" name="a0cfb03b8e9a2fb96fcf9027119e42aeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cfb03b8e9a2fb96fcf9027119e42aeb">&#9670;&#160;</a></span>gff_evolve_ext_multi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">procedure gridfire_mod::gridfire::gff_evolve_ext_multi </td>
+          <td>(</td>
+          <td class="paramtype">class(<a class="el" href="structgridfire__mod_1_1gridfire.html">gridfire</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:,:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>y_in</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>t</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rho</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), value</td>          <td class="paramname"><span class="paramname"><em>tmax</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), value</td>          <td class="paramname"><span class="paramname"><em>dt0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:,:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>y_out</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>energy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>dedt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>dedrho</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>nu_e_loss</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>nu_flux</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>mass_lost</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>eps_nuc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>dlneps_dlnt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>dlneps_dlnrho</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>nu_e_loss_rate</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>ierr</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a85cae59be6650ba356efee1078792155" name="a85cae59be6650ba356efee1078792155"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85cae59be6650ba356efee1078792155">&#9670;&#160;</a></span>gff_evolve_ext_single()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">procedure gridfire_mod::gridfire::gff_evolve_ext_single </td>
+          <td>(</td>
+          <td class="paramtype">class(<a class="el" href="structgridfire__mod_1_1gridfire.html">gridfire</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>y_in</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), intent(in)</td>          <td class="paramname"><span class="paramname"><em>t</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rho</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), value</td>          <td class="paramname"><span class="paramname"><em>tmax</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), value</td>          <td class="paramname"><span class="paramname"><em>dt0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), dimension(:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>y_out</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), intent(out)</td>          <td class="paramname"><span class="paramname"><em>energy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), intent(out)</td>          <td class="paramname"><span class="paramname"><em>dedt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), intent(out)</td>          <td class="paramname"><span class="paramname"><em>dedrho</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), intent(out)</td>          <td class="paramname"><span class="paramname"><em>nu_e_loss</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), intent(out)</td>          <td class="paramname"><span class="paramname"><em>nu_flux</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), intent(out)</td>          <td class="paramname"><span class="paramname"><em>mass_lost</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), intent(out)</td>          <td class="paramname"><span class="paramname"><em>eps_nuc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), intent(out)</td>          <td class="paramname"><span class="paramname"><em>dlneps_dlnt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), intent(out)</td>          <td class="paramname"><span class="paramname"><em>dlneps_dlnrho</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(c_double), intent(out)</td>          <td class="paramname"><span class="paramname"><em>nu_e_loss_rate</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

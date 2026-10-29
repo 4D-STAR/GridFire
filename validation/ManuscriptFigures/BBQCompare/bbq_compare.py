@@ -164,7 +164,7 @@ def main(save_show):
     print(engine_graph.getNetworkSpecies(blob))
 
     solver_ctx_graph = PointSolverContext(blob)
-    solver_ctx_graph.stdout_logging = False
+    solver_ctx_graph.stdout_logging = True
     solver_ctx_graph.callback = lambda ctx: stepLogger.log_step(ctx)
 
     solver_single = PointSolver(engine_graph)
@@ -172,19 +172,19 @@ def main(save_show):
     r_graph = solver_single.evaluate(solver_ctx_graph, netIn, False, False)
     df_graph : pd.DataFrame = stepLogger.df
     df_graph.to_csv("bbq_graph.csv", index=False)
-    stepLogger.reset()
-
-    QSE_engine = MultiscalePartitioningEngineView(engine_graph)
-    solver_ctx_graph_qse = PointSolverContext(QSE_engine.constructStateBlob(engine_graph.constructStateBlob()))
-    solver_ctx_graph_qse.stdout_logging = False
-    solver_ctx_graph_qse.callback = lambda ctx: stepLogger.log_step(ctx)
-
-    solver_QSE = PointSolver(QSE_engine)
-    r_qse = solver_QSE.evaluate(solver_ctx_graph_qse, netIn, False, False)
-
-    df_qse : pd.DataFrame = stepLogger.df
-    df_qse.to_csv("bbq_qse.csv", index=False)
-    stepLogger.reset()
+    # stepLogger.reset()
+    #
+    # QSE_engine = MultiscalePartitioningEngineView(engine_graph)
+    # solver_ctx_graph_qse = PointSolverContext(QSE_engine.constructStateBlob(engine_graph.constructStateBlob()))
+    # solver_ctx_graph_qse.stdout_logging = False
+    # solver_ctx_graph_qse.callback = lambda ctx: stepLogger.log_step(ctx)
+    #
+    # solver_QSE = PointSolver(QSE_engine)
+    # r_qse = solver_QSE.evaluate(solver_ctx_graph_qse, netIn, False, False)
+    #
+    # df_qse : pd.DataFrame = stepLogger.df
+    # df_qse.to_csv("bbq_qse.csv", index=False)
+    # stepLogger.reset()
 
 
 if __name__ == "__main__":

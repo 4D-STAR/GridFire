@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">GridFire<span id="projectnumber">&#160;v1.0.2</span>
+   <div id="projectname">GridFire<span id="projectnumber">&#160;v1.1.0</span>
    </div>
    <div id="projectbrief">General Purpose Nuclear Network</div>
   </td>
@@ -299,6 +299,9 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:ad6b75b38b3c67276ad5fe254a36bf8f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a698cbb0c4e0028924b116906787e342a" id="r_a698cbb0c4e0028924b116906787e342a"><td class="memItemLeft" align="right" valign="top">std::pair&lt; double, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a698cbb0c4e0028924b116906787e342a">compute_neutrino_fluxes</a> (<a class="el" href="classgridfire_1_1engine_1_1scratch_1_1_state_blob.html">scratch::StateBlob</a> &amp;ctx, double netFlow, const <a class="el" href="classgridfire_1_1reaction_1_1_reaction.html">reaction::Reaction</a> &amp;reaction) const</td></tr>
 <tr class="separator:a698cbb0c4e0028924b116906787e342a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacbd3c8b49f5ba8c50fcd334750bf10b" id="r_aacbd3c8b49f5ba8c50fcd334750bf10b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aacbd3c8b49f5ba8c50fcd334750bf10b">neutrino_energy_loss_per_molar_flow</a> (const <a class="el" href="classgridfire_1_1reaction_1_1_reaction.html">reaction::Reaction</a> &amp;reaction) const</td></tr>
+<tr class="memdesc:aacbd3c8b49f5ba8c50fcd334750bf10b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Neutrino energy carried away per unit net molar reaction flow [erg][mol^-1] (0 for non-weak reactions).  <br /></td></tr>
+<tr class="separator:aacbd3c8b49f5ba8c50fcd334750bf10b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5c4f7868ccd28fcf256e1e252c78517" id="r_ab5c4f7868ccd28fcf256e1e252c78517"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgridfire_1_1engine_1_1_graph_engine_1_1_precomputation_kernel_results.html">PrecomputationKernelResults</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5c4f7868ccd28fcf256e1e252c78517">accumulate_flows_serial</a> (<a class="el" href="classgridfire_1_1engine_1_1scratch_1_1_state_blob.html">scratch::StateBlob</a> &amp;ctx, const std::vector&lt; double &gt; &amp;local_abundances, const std::vector&lt; double &gt; &amp;screening_factors, const std::vector&lt; double &gt; &amp;bare_rates, const std::vector&lt; double &gt; &amp;bare_reverse_rates, double rho, const <a class="el" href="classgridfire_1_1reaction_1_1_reaction_set.html">reaction::ReactionSet</a> &amp;activeReactions) const</td></tr>
 <tr class="separator:ab5c4f7868ccd28fcf256e1e252c78517"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3ab19d036a9f1484f527442b2dad958" id="r_ad3ab19d036a9f1484f527442b2dad958"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgridfire_1_1engine_1_1_step_derivatives.html">StepDerivatives</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3ab19d036a9f1484f527442b2dad958">calculateAllDerivativesUsingPrecomputation</a> (<a class="el" href="classgridfire_1_1engine_1_1scratch_1_1_state_blob.html">scratch::StateBlob</a> &amp;ctx, const fourdst::composition::CompositionAbstract &amp;comp, const std::vector&lt; double &gt; &amp;bare_rates, const std::vector&lt; double &gt; &amp;bare_reverse_rates, double T9, double rho, const <a class="el" href="classgridfire_1_1reaction_1_1_reaction_set.html">reaction::ReactionSet</a> &amp;activeReactions) const</td></tr>
@@ -2521,6 +2524,33 @@ If a species is in the input comp but not in the network </dd></dl>
 <p>Checks if reverse reactions are enabled. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if reverse reactions are enabled, false otherwise.</dd></dl>
 <p>This method allows checking whether the engine is configured to use reverse reactions in its calculations. </p>
+
+</div>
+</div>
+<a id="aacbd3c8b49f5ba8c50fcd334750bf10b" name="aacbd3c8b49f5ba8c50fcd334750bf10b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacbd3c8b49f5ba8c50fcd334750bf10b">&#9670;&#160;</a></span>neutrino_energy_loss_per_molar_flow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double gridfire::engine::GraphEngine::neutrino_energy_loss_per_molar_flow </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classgridfire_1_1reaction_1_1_reaction.html">reaction::Reaction</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>reaction</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Neutrino energy carried away per unit net molar reaction flow [erg][mol^-1] (0 for non-weak reactions). </p>
 
 </div>
 </div>

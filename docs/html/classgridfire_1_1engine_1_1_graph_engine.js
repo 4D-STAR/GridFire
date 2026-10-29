@@ -58,6 +58,7 @@ var classgridfire_1_1engine_1_1_graph_engine =
     [ "involvesSpecies", "classgridfire_1_1engine_1_1_graph_engine.html#a6c231f340fe4add5dce308a79cc0f136", null ],
     [ "isPrecomputationEnabled", "classgridfire_1_1engine_1_1_graph_engine.html#adc9e6e5d8bab57ff2823ad01653cf9f5", null ],
     [ "isUsingReverseReactions", "classgridfire_1_1engine_1_1_graph_engine.html#af61c53c080637d8d601c0def9942a901", null ],
+    [ "neutrino_energy_loss_per_molar_flow", "classgridfire_1_1engine_1_1_graph_engine.html#aacbd3c8b49f5ba8c50fcd334750bf10b", null ],
     [ "populateReactionIDMap", "classgridfire_1_1engine_1_1_graph_engine.html#a6ccfb1813ce5b5c9568434f47e06726a", null ],
     [ "populateSpeciesToIndexMap", "classgridfire_1_1engine_1_1_graph_engine.html#a7e5c8d9b996e5bc7fc130d34dd196a4b", null ],
     [ "precomputeNetwork", "classgridfire_1_1engine_1_1_graph_engine.html#ac7814b9922c7fee4c5a2649127dcdadc", null ],

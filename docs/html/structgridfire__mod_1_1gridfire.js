@@ -2,6 +2,10 @@ var structgridfire__mod_1_1gridfire =
 [
     [ "gff_evolve", "structgridfire__mod_1_1gridfire.html#a3404cadb40ea5287e9cc3472129cd456", null ],
     [ "gff_evolve", "structgridfire__mod_1_1gridfire.html#a3404cadb40ea5287e9cc3472129cd456", null ],
+    [ "gff_evolve_ext", "structgridfire__mod_1_1gridfire.html#ac2807f364241ae065f52301298fa9bc7", null ],
+    [ "gff_evolve_ext", "structgridfire__mod_1_1gridfire.html#ac2807f364241ae065f52301298fa9bc7", null ],
+    [ "gff_evolve_ext_multi", "structgridfire__mod_1_1gridfire.html#a0cfb03b8e9a2fb96fcf9027119e42aeb", null ],
+    [ "gff_evolve_ext_single", "structgridfire__mod_1_1gridfire.html#a85cae59be6650ba356efee1078792155", null ],
     [ "gff_evolve_multi", "structgridfire__mod_1_1gridfire.html#ad071c30fb2751b8c641dbf4ae29acfe9", null ],
     [ "gff_evolve_single", "structgridfire__mod_1_1gridfire.html#a810642b2160b9fcec6aeb9da0b40b3a0", null ],
     [ "gff_free", "structgridfire__mod_1_1gridfire.html#a86de88c6b7d6c181361e1bce220c7f46", null ],

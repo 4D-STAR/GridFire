@@ -106,7 +106,8 @@ int GFPointContext::evolve(
     double& dEps_dRho,
     double& specific_neutrino_energy_loss,
     double& specific_neutrino_flux,
-    double& mass_lost
+    double& mass_lost,
+    const GFInstantaneousOutputs* instantaneous
 ) const {
 
     const std::vector<double> Y_scratch(Y_in, Y_in + num_species);
@@ -126,6 +127,9 @@ int GFPointContext::evolve(
     dEps_dRho = result.dEps_dRho;
     specific_neutrino_energy_loss = result.specific_neutrino_energy_loss;
     specific_neutrino_flux = result.specific_neutrino_flux;
+    if (instantaneous) {
+        instantaneous->write(result, 0);
+    }
 
     std::set<fourdst::atomic::Species> seen_species;
     for (size_t i = 0; i < num_species; i++) {
@@ -142,6 +146,13 @@ int GFPointContext::evolve(
     }
 
     return 0;
+}
+
+void GFInstantaneousOutputs::write(const gridfire::NetOut& netOut, const size_t index) const {
+    if (eps_nuc) eps_nuc[index] = netOut.eps_nuc;
+    if (dlnEps_dlnT) dlnEps_dlnT[index] = netOut.dlnEps_dlnT;
+    if (dlnEps_dlnRho) dlnEps_dlnRho[index] = netOut.dlnEps_dlnRho;
+    if (neutrino_energy_loss_rate) neutrino_energy_loss_rate[index] = netOut.neutrino_energy_loss_rate;
 }
 
 void GFGridContext::init_solver_from_engine() {
@@ -163,7 +174,8 @@ int GFGridContext::evolve(
     double *dEps_dRho,
     double *specific_neutrino_energy_loss,
     double *specific_neutrino_flux,
-    double *mass_lost
+    double *mass_lost,
+    const GFInstantaneousOutputs* instantaneous
 ) const {
     if (this->get_zones() == 0) {
         throw gridfire::exceptions::GridFireError("GFGridContext has zero zones configured for evolution.");
@@ -212,6 +224,9 @@ int GFGridContext::evolve(
         dEps_dRho[zone_idx] = netOut.dEps_dRho;
         specific_neutrino_energy_loss[zone_idx] = netOut.specific_neutrino_energy_loss;
         specific_neutrino_flux[zone_idx] = netOut.specific_neutrino_flux;
+        if (instantaneous) {
+            instantaneous->write(netOut, zone_idx);
+        }
 
         std::set<fourdst::atomic::Species> seen_species;
         for (size_t i = 0; i < num_species; ++i) {

@@ -1,7 +1,9 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$classgridfire_1_1solver_1_1_timestep_context_base.html" title="Base class for solver callback contexts." alt="" coords="5,27,171,68"/>
-<area shape="rect" id="Node000001" href="$class_py_timestep_context_base.html" title=" " alt="" coords="224,5,392,31"/>
-<area shape="poly" id="edge68_Node000000_Node000001" title=" " alt="" coords="185,32,226,29,221,30,186,37"/>
-<area shape="rect" id="Node000002" href="$structgridfire_1_1solver_1_1_point_solver_timestep_context.html" title=" " alt="" coords="219,55,397,96"/>
-<area shape="poly" id="edge69_Node000000_Node000002" title=" " alt="" coords="186,57,221,64,215,64,186,63"/>
+<area shape="rect" id="Node000000" href="$structgridfire_1_1solver_1_1_solver_context_base.html" title=" " alt="" coords="5,55,154,96"/>
+<area shape="rect" id="Node000001" href="$class_py_solver_context_base.html" title=" " alt="" coords="216,5,366,31"/>
+<area shape="poly" id="edge65_Node000000_Node000001" title=" " alt="" coords="168,49,243,30,238,33,169,54"/>
+<area shape="rect" id="Node000002" href="$structgridfire_1_1solver_1_1_grid_solver_context.html" title=" " alt="" coords="205,55,377,96"/>
+<area shape="poly" id="edge66_Node000000_Node000002" title=" " alt="" coords="168,73,207,75,201,76,169,78"/>
+<area shape="rect" id="Node000003" href="$structgridfire_1_1solver_1_1_point_solver_context.html" title=" " alt="" coords="202,120,380,161"/>
+<area shape="poly" id="edge67_Node000000_Node000003" title=" " alt="" coords="162,98,225,119,220,120,161,103"/>
 </map>

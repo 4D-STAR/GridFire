@@ -1,5 +1,6 @@
 var gridfire__context_8h =
 [
+    [ "GFInstantaneousOutputs", "struct_g_f_instantaneous_outputs.html", "struct_g_f_instantaneous_outputs" ],
     [ "GFContext", "struct_g_f_context.html", "struct_g_f_context" ],
     [ "GFPointContext", "struct_g_f_point_context.html", "struct_g_f_point_context" ],
     [ "GFGridContext", "struct_g_f_grid_context.html", "struct_g_f_grid_context" ],

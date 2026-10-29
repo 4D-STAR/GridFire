@@ -1,15 +1,17 @@
 <map id="src/include/gridfire/engine/scratchpads/engine_graph_scratchpad.h" name="src/include/gridfire/engine/scratchpads/engine_graph_scratchpad.h">
-<area shape="rect" id="Node000001" title="Scratchpad implementation for the GraphEngine using CppAD automatic differentiation." alt="" coords="654,5,834,61"/>
+<area shape="rect" id="Node000001" title="Scratchpad implementation for the GraphEngine using CppAD automatic differentiation." alt="" coords="742,5,922,61"/>
 <area shape="rect" id="Node000002" href="$engine_2scratchpads_2formatters_8h.html" title=" " alt="" coords="386,109,598,150"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="655,68,546,111,544,106,660,65"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="725,65,564,111,562,106,729,62"/>
 <area shape="rect" id="Node000003" href="$scratchpads_8h.html" title="Unified header for the scratchpad memory management system." alt="" coords="452,198,676,238"/>
-<area shape="poly" id="edge16_Node000001_Node000003" title=" " alt="" coords="704,70,664,111,583,199,579,195,660,107,700,73"/>
+<area shape="poly" id="edge16_Node000001_Node000003" title=" " alt="" coords="736,69,700,88,663,111,615,156,580,199,576,195,611,152,660,107,697,84,740,66"/>
 <area shape="rect" id="Node000014" href="$engine__graph_8cpp.html" title=" " alt="" coords="674,109,814,150"/>
-<area shape="poly" id="edge17_Node000001_Node000014" title=" " alt="" coords="746,74,747,110,742,108,743,79"/>
+<area shape="poly" id="edge17_Node000001_Node000014" title=" " alt="" coords="799,71,764,111,761,107,794,74"/>
 <area shape="rect" id="Node000015" href="$priming_8cpp.html" title=" " alt="" coords="838,109,1005,150"/>
-<area shape="poly" id="edge18_Node000001_Node000015" title=" " alt="" coords="809,66,887,108,882,109,809,71"/>
+<area shape="poly" id="edge18_Node000001_Node000015" title=" " alt="" coords="869,70,906,109,901,108,868,75"/>
 <area shape="rect" id="Node000016" href="$stellar__policy_8cpp.html" title=" " alt="" coords="1028,109,1162,150"/>
-<area shape="poly" id="edge19_Node000001_Node000016" title=" " alt="" coords="850,60,1030,109,1025,111,850,65"/>
+<area shape="poly" id="edge19_Node000001_Node000016" title=" " alt="" coords="922,64,1043,108,1037,109,922,69"/>
+<area shape="rect" id="Node000017" href="$_point_solver_8cpp.html" title=" " alt="" coords="1186,109,1342,150"/>
+<area shape="poly" id="edge20_Node000001_Node000017" title=" " alt="" coords="938,55,1188,110,1183,112,938,60"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="519,159,551,197,545,197,518,165"/>
 <area shape="rect" id="Node000004" href="$engine_8h.html" title="Core header for the GridFire reaction network engine module." alt="" coords="407,286,535,327"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="534,247,494,288,490,284,530,251"/>

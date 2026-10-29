@@ -58,6 +58,7 @@ var searchData=
   ['cullreactionsbyflow_55',['cullReactionsByFlow',['../classgridfire_1_1engine_1_1_adaptive_engine_view.html#aebb0d838af29b74b86e708e614698074',1,'gridfire::engine::AdaptiveEngineView']]],
   ['current_5fmean_56',['current_mean',['../classgridfire_1_1trigger_1_1solver_1_1_c_v_o_d_e_1_1_convergence_failure_trigger.html#a3d8d9eafff17ea6a283afbc7e8b450bb',1,'gridfire::trigger::solver::CVODE::ConvergenceFailureTrigger']]],
   ['cvode_5ferror_5fhandler_57',['cvode_error_handler',['../classgridfire_1_1solver_1_1_point_solver.html#a153f72c17a795f220ac6f674d2ad4ab6',1,'gridfire::solver::PointSolver']]],
-  ['cvode_5fjac_5fwrapper_58',['cvode_jac_wrapper',['../classgridfire_1_1solver_1_1_point_solver.html#ab0eb347e114510de0dfeb9d86fb40c9d',1,'gridfire::solver::PointSolver']]],
-  ['cvode_5frhs_5fwrapper_59',['cvode_rhs_wrapper',['../classgridfire_1_1solver_1_1_point_solver.html#acbfc90a7439f7a8a377d98571bade26b',1,'gridfire::solver::PointSolver']]]
+  ['cvode_5ferror_5fweight_5fwrapper_58',['cvode_error_weight_wrapper',['../classgridfire_1_1solver_1_1_point_solver.html#ad0736bf92add418993bb2ab91bd5c2e0',1,'gridfire::solver::PointSolver']]],
+  ['cvode_5fjac_5fwrapper_59',['cvode_jac_wrapper',['../classgridfire_1_1solver_1_1_point_solver.html#ab0eb347e114510de0dfeb9d86fb40c9d',1,'gridfire::solver::PointSolver']]],
+  ['cvode_5frhs_5fwrapper_60',['cvode_rhs_wrapper',['../classgridfire_1_1solver_1_1_point_solver.html#acbfc90a7439f7a8a377d98571bade26b',1,'gridfire::solver::PointSolver']]]
 ];

@@ -54,8 +54,28 @@ class NetOut:
     def dEps_dT(self) -> float:
         ...
     @property
+    def dlnEps_dlnRho(self) -> float:
+        """
+        Logarithmic derivative dln(eps_nuc)/dln(rho) at the final state (0 if eps_nuc == 0)
+        """
+    @property
+    def dlnEps_dlnT(self) -> float:
+        """
+        Logarithmic derivative dln(eps_nuc)/dln(T) at the final state (0 if eps_nuc == 0)
+        """
+    @property
     def energy(self) -> float:
         ...
+    @property
+    def eps_nuc(self) -> float:
+        """
+        Instantaneous specific nuclear energy generation rate (erg/g/s) at the final state, net of reaction neutrino losses
+        """
+    @property
+    def neutrino_energy_loss_rate(self) -> float:
+        """
+        Instantaneous reaction neutrino energy loss rate (erg/g/s) at the final state
+        """
     @property
     def num_steps(self) -> int:
         ...

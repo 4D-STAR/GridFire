@@ -6,6 +6,7 @@ var classgridfire_1_1solver_1_1_point_solver =
     [ "PointSolver", "classgridfire_1_1solver_1_1_point_solver.html#af67b6bebef730dcd201f4a7f99545d60", null ],
     [ "calculate_rhs", "classgridfire_1_1solver_1_1_point_solver.html#a866bd58075b05c95222dd95abb86ca25", null ],
     [ "cvode_error_handler", "classgridfire_1_1solver_1_1_point_solver.html#a153f72c17a795f220ac6f674d2ad4ab6", null ],
+    [ "cvode_error_weight_wrapper", "classgridfire_1_1solver_1_1_point_solver.html#ad0736bf92add418993bb2ab91bd5c2e0", null ],
     [ "cvode_jac_wrapper", "classgridfire_1_1solver_1_1_point_solver.html#ab0eb347e114510de0dfeb9d86fb40c9d", null ],
     [ "cvode_rhs_wrapper", "classgridfire_1_1solver_1_1_point_solver.html#acbfc90a7439f7a8a377d98571bade26b", null ],
     [ "evaluate", "classgridfire_1_1solver_1_1_point_solver.html#a56440c3329be6e245274e612a6048b92", null ],

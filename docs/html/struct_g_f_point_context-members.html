@@ -29,7 +29,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">GridFire<span id="projectnumber">&#160;v1.0.2</span>
+   <div id="projectname">GridFire<span id="projectnumber">&#160;v1.1.0</span>
    </div>
    <div id="projectbrief">General Purpose Nuclear Network</div>
   </td>
@@ -107,7 +107,7 @@ $(function(){initNavTree('struct_g_f_point_context.html',''); initResizable(true
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="struct_g_f_context.html#ab566b9194a7869f6b69ba7adc67d5d34">engine</a></td><td class="entry"><a class="el" href="struct_g_f_context.html">GFContext</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="struct_g_f_context.html#af77eab6a1ee3b0c1ebf50b7200040dfa">engine_ctx</a></td><td class="entry"><a class="el" href="struct_g_f_context.html">GFContext</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="struct_g_f_point_context.html#ac1ea5f9d1e909636228d66bb52e94889">evolve</a>(const double *Y_in, size_t num_species, double T, double rho, double tMax, double dt0, double *Y_out, double &amp;energy_out, double &amp;dEps_dT, double &amp;dEps_dRho, double &amp;specific_neutrino_energy_loss, double &amp;specific_neutrino_flux, double &amp;mass_lost) const</td><td class="entry"><a class="el" href="struct_g_f_point_context.html">GFPointContext</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_g_f_point_context.html#a54dccc5c4764891a6ee280963b45a3f6">evolve</a>(const double *Y_in, size_t num_species, double T, double rho, double tMax, double dt0, double *Y_out, double &amp;energy_out, double &amp;dEps_dT, double &amp;dEps_dRho, double &amp;specific_neutrino_energy_loss, double &amp;specific_neutrino_flux, double &amp;mass_lost, const GFInstantaneousOutputs *instantaneous=nullptr) const</td><td class="entry"><a class="el" href="struct_g_f_point_context.html">GFPointContext</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="struct_g_f_context.html#a4aa31d479303659b475558ef2df30cbe">init_composition_from_abundance_vector</a>(const std::vector&lt; double &gt; &amp;abundances, size_t num_species) const</td><td class="entry"><a class="el" href="struct_g_f_context.html">GFContext</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="struct_g_f_context.html#a18aab1769f5e3071d768753141f15c6c">init_engine_from_policy</a>(const std::string &amp;policy_name, const double *abundances, size_t num_species)</td><td class="entry"><a class="el" href="struct_g_f_context.html">GFContext</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="struct_g_f_point_context.html#a0fc95dc7b98865f7821ff945e809635a">init_solver_from_engine</a>() override</td><td class="entry"><a class="el" href="struct_g_f_point_context.html">GFPointContext</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>

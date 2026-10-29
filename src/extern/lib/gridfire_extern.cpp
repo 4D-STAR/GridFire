@@ -204,7 +204,7 @@ extern "C" {
         });
     }
 
-    int gf_evolve(
+    static int gf_evolve_impl(
         const enum GF_TYPE type,
         void* ptr,
         const void* Y_in,
@@ -219,7 +219,8 @@ extern "C" {
         void* dEps_dRho,
         void* specific_neutrino_energy_loss,
         void* specific_neutrino_flux,
-        void* mass_lost
+        void* mass_lost,
+        const GFInstantaneousOutputs* instantaneous
     ) {
 
         printf("In C Starting gf_evolve with type %d\n", type);
@@ -283,7 +284,8 @@ extern "C" {
                         *dEps_dRho_local,
                         *specific_neutrino_energy_loss_local,
                         *specific_neutrino_flux_local,
-                        *mass_lost_local
+                        *mass_lost_local,
+                        instantaneous
                     );
                 });
             }
@@ -316,7 +318,8 @@ extern "C" {
                         dEps_dRho_local,
                         specific_neutrino_energy_loss_local,
                         specific_neutrino_flux_local,
-                        mass_lost_local
+                        mass_lost_local,
+                        instantaneous
                     );
                 });
             }
@@ -326,6 +329,71 @@ extern "C" {
 
 
 
+    }
+
+    int gf_evolve(
+        const enum GF_TYPE type,
+        void* ptr,
+        const void* Y_in,
+        const size_t num_species,
+        const void* T,
+        const void* rho,
+        const double tMax,
+        const double dt0,
+        void* Y_out,
+        void* energy_out,
+        void* dEps_dT,
+        void* dEps_dRho,
+        void* specific_neutrino_energy_loss,
+        void* specific_neutrino_flux,
+        void* mass_lost
+    ) {
+        return gf_evolve_impl(
+            type, ptr, Y_in, num_species, T, rho, tMax, dt0,
+            Y_out, energy_out, dEps_dT, dEps_dRho,
+            specific_neutrino_energy_loss, specific_neutrino_flux, mass_lost,
+            nullptr
+        );
+    }
+
+    int gf_evolve_ext(
+        const enum GF_TYPE type,
+        void* ptr,
+        const void* Y_in,
+        const size_t num_species,
+        const void* T,
+        const void* rho,
+        const double tMax,
+        const double dt0,
+        void* Y_out,
+        void* energy_out,
+        void* dEps_dT,
+        void* dEps_dRho,
+        void* specific_neutrino_energy_loss,
+        void* specific_neutrino_flux,
+        void* mass_lost,
+        void* eps_nuc,
+        void* dlnEps_dlnT,
+        void* dlnEps_dlnRho,
+        void* neutrino_energy_loss_rate
+    ) {
+        if (!eps_nuc || !dlnEps_dlnT || !dlnEps_dlnRho || !neutrino_energy_loss_rate) {
+            return GF_UNINITIALIZED_OUTPUT_MEMORY_ERROR;
+        }
+
+        const GFInstantaneousOutputs instantaneous{
+            .eps_nuc = static_cast<double*>(eps_nuc),
+            .dlnEps_dlnT = static_cast<double*>(dlnEps_dlnT),
+            .dlnEps_dlnRho = static_cast<double*>(dlnEps_dlnRho),
+            .neutrino_energy_loss_rate = static_cast<double*>(neutrino_energy_loss_rate)
+        };
+
+        return gf_evolve_impl(
+            type, ptr, Y_in, num_species, T, rho, tMax, dt0,
+            Y_out, energy_out, dEps_dT, dEps_dRho,
+            specific_neutrino_energy_loss, specific_neutrino_flux, mass_lost,
+            &instantaneous
+        );
     }
 
     char* gf_get_last_error_message(void* ptr) {

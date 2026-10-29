@@ -1,3 +1,9 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$structgridfire_1_1_net_in.html" title=" " alt="" coords="5,5,106,31"/>
+<area shape="rect" id="Node000000" href="$classgridfire_1_1io_1_1_network_file_parser.html" title="An abstract base class for network file parsers." alt="" coords="5,55,162,96"/>
+<area shape="rect" id="Node000001" href="$class_py_network_file_parser.html" title=" " alt="" coords="226,5,372,31"/>
+<area shape="poly" id="edge30_Node000000_Node000001" title=" " alt="" coords="176,48,250,30,245,33,178,53"/>
+<area shape="rect" id="Node000002" href="$classgridfire_1_1io_1_1_m_e_s_a_network_file_parser.html" title="A parser for MESA&#45;format network files." alt="" coords="212,55,386,96"/>
+<area shape="poly" id="edge31_Node000000_Node000002" title=" " alt="" coords="177,73,214,75,209,76,178,78"/>
+<area shape="rect" id="Node000003" href="$classgridfire_1_1io_1_1_simple_reaction_list_file_parser.html" title="A parser for simple text files containing a list of reactions." alt="" coords="210,120,388,161"/>
+<area shape="poly" id="edge32_Node000000_Node000003" title=" " alt="" coords="168,98,232,119,227,120,167,103"/>
 </map>
